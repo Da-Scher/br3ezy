@@ -3,3 +3,6 @@
 
 #cache
 .angular
+
+#distribution
+/dist
