@@ -17,10 +17,10 @@ export class GalleryComponent {
 
   streamListing: StreamListing = {
     id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: '../assets/doom_cover.jpg',
+    name: 'Linus\'s Home Office',
+    city: 'Portland',
+    state: 'OR',
+    photo: 'https://ofa.guru/wp-content/uploads/2020/11/linus-torvalds-guided-tour-of-his-home-office-youtube-thumbnail.jpg',
    // photo: `${this.baseUrl}/example-house.jpg`,
     availableUnits: 99,
     wifi: true,
