@@ -1,12 +1,12 @@
 /* this code inspired by https://angular.io/tutorial/first-app/first-app-lesson-03 */
 
 .listing {
-    background: var(--accent-color);
+    background: #69d27f;
     border-radius: 30px;
     padding-bottom: 30px;
   }
   .listing-heading {
-    color: var(--primary-color);
+    color: #05781e;
     padding: 10px 20px 0 20px;
   }
   .listing-photo {
@@ -19,7 +19,7 @@
     padding: 10px 20px 20px 20px;
   }
   .listing-location::before {
-    content: url("https://www.daylily.com/auctionfiles/star-3.gif") / "";
+    content: url("https://www.iconninja.com/files/228/904/57/green-pin-location-red-position-icon.png") / "";
   }
   
   section.listing a {

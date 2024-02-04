@@ -24,6 +24,6 @@ export class GalleryComponent {
    // photo: `${this.baseUrl}/example-house.jpg`,
     availableUnits: 99,
     wifi: true,
-    laundry: false,
+    laundry: true,
   };
 }
