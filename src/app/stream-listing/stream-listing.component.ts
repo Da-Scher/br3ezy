@@ -11,5 +11,7 @@ import { StreamListing } from '../streamlisting';
 })
 export class StreamListingComponent {
   @Input() streamListing!: StreamListing;  /* ! tells compiler that the input wont be null, promise
-                                            * @Input() means we're passing an instance from child to parent */
+                                            * @Input() allows components to share data. The direction of the data
+                                            * sharing is from parent component to child component. Here,
+                                            * the child component StreamListing can receive its value from  */
 }

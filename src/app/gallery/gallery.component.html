@@ -10,6 +10,9 @@
 </section>
 
 <section class="results">
-    <app-stream-listing [streamListing]="streamListing"></app-stream-listing>
+  <!-- *ngFor is an angular For loop, it will iterate thru the list of streamListings.-->
+    <app-stream-listing
+    *ngFor="let streamListing of streamListingList" [streamListing]="streamListing"> 
+  </app-stream-listing>
 
 </section>
