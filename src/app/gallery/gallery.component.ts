@@ -60,6 +60,27 @@ export class GalleryComponent {
       wifi: true,
       laundry: true, // does linus do his own laundry? 
     },
-
+    {
+      id: 4,
+      name: 'Ninja',
+      city: 'Taylor',
+      state: 'Michigan',
+      photo: 'https://images.firstpost.com/wp-content/uploads/2019/08/ninja-streamer.jpg',
+      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
+      availableUnits: 99,
+      wifi: true,
+      laundry: true, // does linus do his own laundry? 
+    },
+    {
+      id: 5,
+      name: 'Pokimane',
+      city: 'Parts Unknown',
+      state: 'Earth',
+      photo: 'https://dotesports.com/wp-content/uploads/2022/06/20005308/Feature-Image-18.jpg',
+      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
+      availableUnits: 99,
+      wifi: true,
+      laundry: true, // does linus do his own laundry? 
+    },
   ]
 } // end class GalleryComponent
