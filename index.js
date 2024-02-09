@@ -7,15 +7,22 @@ try {
   console.error('https support is disabled!');
 }
 const fs    = require('node:fs');
+const express = require('express');
+const app = express();
+const path = require('path');
+app.use(express.static('dist/br3ezy/browser'));
+app.get("/", (req, res) => {
+  res.sendFile('/dist/br3ezy/browser/index.html');
+});
 
-// todo: get key and cert later 
+
+// todo: get key and cert later. also get more professional sounding names.
 const options = {
   key: fs.readFileSync('./dist/key.pem'),
   cert: fs.readFileSync('./dist/cert.pem'),
 };
 
-https.createServer(options, (req, res) => {
-  console.log("Server running at https://localhost:8080");
-  res.writeHead(200);
-  res.end("Hello, br3ezy!")
-}).listen(8000);
+https.createServer(options, app)
+  .listen(8000, (req, res) => {
+    console.log("Server running at https://localhost:8000");
+  });
