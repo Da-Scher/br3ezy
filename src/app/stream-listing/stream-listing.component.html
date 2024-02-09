@@ -1,6 +1,10 @@
 
 <section class="listing">
-    <img class="listing-photo" [src]="streamListing.photo" alt="Exterior photo of {{streamListing.name}}"> <!-- property binding -->
-    <h2 class="listing-heading">{{ streamListing.name }}</h2>
-    <p class="listing-location">{{ streamListing.city}}, {{streamListing.state }}</p>
+    <img class="listing-photo" [src]="streamListing.photo" alt="Exterior photo of {{streamListing.id}}"> <!-- property binding -->
+    <h2 class="listing-heading">{{ streamListing.title }}</h2>
+    <p class="streamListing.user_id"> <b>User ID: </b>{{streamListing.user_id}}</p>
+    <p class="streamListing.description"> <b>Description: </b>{{streamListing.description}}</p>
+    <p class="streamListing.start_time"> <b>Start Time: </b>{{streamListing.start_time}}</p>
+    <p class="streamListing.is_active"> <b>Live: </b>{{streamListing.is_active}}</p>
+
   </section>

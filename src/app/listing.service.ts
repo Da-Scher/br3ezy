@@ -11,69 +11,67 @@ export class ListingService {
   streamListingList: StreamListing[] = [
     {
       id: 0,
-      name: 'Linus\'s Home Office',
-      city: 'Portland',
-      state: 'OR',
-      photo: 'https://ofa.guru/wp-content/uploads/2020/11/linus-torvalds-guided-tour-of-his-home-office-youtube-thumbnail.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 0,
+      title: 'Linus\'s Stream',
+      description: 'A peak into the life of Linus, creator of the Linux kernel.',
+      start_time: 0,
+      is_active: true,
+      photo: 'https://ofa.guru/wp-content/uploads/2020/11/linus-torvalds-guided-tour-of-his-home-office-youtube-thumbnail.jpg'
     },
     {
+
       id: 1,
-      name: 'Cthulu\'s House',
-      city: 'R\'lyeh',
-      state: 'South Pacific',
-      photo: 'https://cdna.artstation.com/p/assets/images/images/052/142/696/large/jack-house-of-cthulu.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 1,
+      title: 'Cthulu\'s Crib',
+      description: 'Cthulu shows off his South Pacific Ocean Crib / Prison.',
+      start_time: 0,
+      is_active: true,
+      photo: 'https://cdna.artstation.com/p/assets/images/images/052/142/696/large/jack-house-of-cthulu.jpg'
+
     },
     {
+
       id: 2,
-      name: 'Tom Bombadil\'s House',
-      city: 'The Old Forest',
-      state: 'Middle-Earth',
-      photo: 'http://www.brickbuilt.org/wp-content/uploads/2016/10/Featured-10-16.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 2,
+      title: 'Tom\'s Green Thumb',
+      description: 'Tom Bombadil sharing his thoughts on sustainable gardening in the Old Forest',
+      start_time: 0,
+      is_active: true,
+      photo: 'http://www.brickbuilt.org/wp-content/uploads/2016/10/Featured-10-16.jpg'
+
+
     },
     {
+
       id: 3,
-      name: 'WSUV',
-      city: 'Vancouver',
-      state: 'Washington',
-      photo: 'https://globalresearchsyndicate.com/wp-content/uploads/2020/05/WSUV-COVID-Research-Clark-County-Today-Copy-of-WSU-Vancouver-Campus-3-11-20-01.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 3,
+      title: 'Tour WSUV',
+      description: 'Explore the WSUV campus',
+      start_time: 0,
+      is_active: true,
+      photo: 'https://globalresearchsyndicate.com/wp-content/uploads/2020/05/WSUV-COVID-Research-Clark-County-Today-Copy-of-WSU-Vancouver-Campus-3-11-20-01.jpg'
+
     },
     {
+
       id: 4,
-      name: 'Ninja',
-      city: 'Taylor',
-      state: 'Michigan',
-      photo: 'https://images.firstpost.com/wp-content/uploads/2019/08/ninja-streamer.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 4,
+      title: 'Ninja Plays Fortnite',
+      description: 'Doing the things Ninja does! ',
+      start_time: 0,
+      is_active: true,
+      photo: 'https://images.firstpost.com/wp-content/uploads/2019/08/ninja-streamer.jpg'
+
     },
     {
       id: 5,
-      name: 'Pokimane',
-      city: 'Parts Unknown',
-      state: 'Earth',
-      photo: 'https://dotesports.com/wp-content/uploads/2022/06/20005308/Feature-Image-18.jpg',
-      // photo: `${this.baseUrl}/example-house.jpg`, NOTE, this.baseUrl could be useful when the server has a domain
-      availableUnits: 99,
-      wifi: true,
-      laundry: true, // does linus do his own laundry? 
+      user_id: 5,
+      title: 'Pokimane\'s New Home: Br3ezy',
+      description: 'Pokimane settling in to her new digs at Br3ezy after ending her contract with Twitch. ',
+      start_time: 0,
+      is_active: true,
+      photo: 'https://dotesports.com/wp-content/uploads/2022/06/20005308/Feature-Image-18.jpg'
+
     },
   ]
 
