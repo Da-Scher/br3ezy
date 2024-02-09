@@ -6,3 +6,6 @@
 
 #distribution
 /dist
+
+#environment
+.env
