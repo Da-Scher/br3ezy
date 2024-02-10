@@ -1,0 +1,16 @@
+<!-- some html inspired by https://angular.io/tutorial/first-app/first-app-lesson-02  -->
+
+<section>
+    <form>
+      <input type="text" placeholder="This button is a facade">
+      <button class="primary" type="button">don't search</button>
+    </form>
+</section>
+
+<section class="results">
+  <!-- *ngFor is an angular For loop, it will iterate thru the list of streamListings.-->
+    <app-stream-listing
+    *ngFor="let streamListing of streamListingList" [streamListing]="streamListing"> 
+  </app-stream-listing>
+
+</section>
