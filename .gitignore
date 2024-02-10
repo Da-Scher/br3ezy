@@ -9,3 +9,6 @@
 
 #environment
 .env
+
+#development
+output
