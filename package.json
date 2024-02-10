@@ -1,6 +1,6 @@
 {
   "name": "br3ezy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
+    "@eyevinn/srt": "^0.8.3",
     "dotenv": "^16.4.1",
     "mysql2": "^3.9.1",
     "rxjs": "~7.8.0",
@@ -36,5 +37,23 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.3.2"
-  }
+  },
+  "description": "<div align=\"center\"><img width=\"446\" alt=\"br3ezy_logo_banner\" src=\"https://github.com/Da-Scher/br3ezy/assets/56631681/aa5fa554-0878-4b49-a094-453e85539427\"></div>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Da-Scher/br3ezy.git"
+  },
+  "keywords": [
+    "live-stream",
+    "vod",
+    "federated",
+    "self-hosted"
+  ],
+  "author": "Dakota Schaeffer (dak.scher@proton.me)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Da-Scher/br3ezy/issues"
+  },
+  "homepage": "https://github.com/Da-Scher/br3ezy#readme"
 }
