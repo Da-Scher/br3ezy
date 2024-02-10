@@ -33,8 +33,9 @@ https.createServer(options, app)
     console.log("Server running at https://localhost:8000");
   });
 
+// sample code taken from https://github.com/Eyevinn/node-srt
 const host = new SRTReadStream('0.0.0.0', 2000);
 host.listen(readStream=> {
-  console.log('host(?) connected.');
+  console.log('stream connected.');
   readStream.pipe(output);
 });
