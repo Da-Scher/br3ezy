@@ -35,11 +35,12 @@ https.createServer(options, app)
 
 const { AsyncSRT } = require('@eyevinn/srt');
 
-const asyncSRT = new AsyncSRT();
-async function startServer() {
+let asyncSRT = new AsyncSRT();
+async function startServer(previousServer) {
   console.log('starting server.');
   try {
-    const socket = await asyncSRT.createSocket(false);	  
+    let socket = await asyncSRT.createSocket(false);	  
+    console.log('socket:', socket);
     const result = await asyncSRT.bind(socket, '127.0.0.1', 2000);
     console.log('bind result:', result);
     const listenResult = await asyncSRT.listen(socket, 1);
@@ -49,7 +50,12 @@ async function startServer() {
     });
     asyncSRT.on('error', (error) => { 
 	    console.error('Error:', error);
+	    console.log('closing socket.');
+	    // TODO: find a way to close stream without using on 'error'.
 	    asyncSRT.close(socket);
+	    console.log('closed socket:', socket);
+	    delete asyncSRT;
+	    asyncSRT = new AsyncSRT();
 	    startServer();
     });
     const acceptResult = await asyncSRT.accept(socket);
@@ -57,7 +63,7 @@ async function startServer() {
     let readResult = await asyncSRT.read(acceptResult, 1316);
     while(readResult) {
 	// read stream, close on disconnect
-	console.log('read result:', readResult);
+	//console.log('read result:', readResult);
 	readResult = await asyncSRT.read(acceptResult, 1316);
 	if(readResult === null) {
 		console.log('stream disconnected.');
