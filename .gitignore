@@ -6,3 +6,9 @@
 
 #distribution
 /dist
+
+#environment
+.env
+
+#development
+output
