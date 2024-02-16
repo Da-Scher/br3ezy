@@ -36,6 +36,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "video.js": "^8.10.0",
     "typescript": "~5.3.2"
   },
   "description": "<div align=\"center\"><img width=\"446\" alt=\"br3ezy_logo_banner\" src=\"https://github.com/Da-Scher/br3ezy/assets/56631681/aa5fa554-0878-4b49-a094-453e85539427\"></div>",
