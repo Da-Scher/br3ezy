@@ -12,6 +12,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 // database server
 const pool = require('./db/db');
+// webtokens
+const jwt = require('jsonwebtoken');
 
 // todo: replace me with a video player.
 const output = fs.createWriteStream('./output');
@@ -86,6 +88,10 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
+// jwt key
+require('dotenv').config();
+const secretKey = process.env.SECRET_KEY;
+
 // Registration POST
 app.post('/register', async (req, res) => {
   try {
@@ -101,6 +107,32 @@ app.post('/register', async (req, res) => {
       });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Login POST
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    const [rows] = await pool.query('SELECT * FROM Users WHERE username = ?', [username]);
+    if (rows.length === 0) {
+      return res.status(401).send('User not found');
+    }
+
+    const user = rows[0];
+
+    const isMatch = bcrypt.compareSync(password, user.password_hash);
+    if (isMatch) {
+      res.send('Login succesful');
+    } else {
+      res.status(401).send('Invalid password');
+    }
+    const token = jwt.sign({ userId: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
+    res.json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred');
   }
 });
 
