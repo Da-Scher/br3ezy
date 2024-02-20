@@ -3,6 +3,7 @@ const https = require("https");
 const cors = require("cors");
 const httpsOptions = require("./config/httpsOptions");
 const authRoutes = require("./routes/authRoutes");
+const streamRoutes = require("./routes/streamRoutes");
 
 // Start Srt Server
 const { startServer } = require("./srt/srtServer");
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Setup routes
 app.use("/api/auth", authRoutes);
+app.use("/api/streams", streamRoutes);
 
 // Serve static files
 app.use(express.static("dist/br3ezy/browser"));
