@@ -2,11 +2,15 @@ const pool = require("../db/db");
 
 class Chat {
   static async fetchChatHistory(streamId) {
-    const [messages] = await pool.query(
-      "SELECT * FROM Messages WHERE stream_id = ? ORDER BY timestamp ASC",
-      [streamId],
-    );
-    return messages;
+    try {
+      const [messages] = await pool.query(
+        "SELECT * FROM Messages WHERE stream_id = ? ORDER BY timestamp ASC",
+        [streamId],
+      );
+      return messages;
+    } catch (error) {
+      throw new Error("Server error while fetching chat history");
+    }
   }
 
   static async saveMessage({ userId, streamId, message }) {
@@ -15,9 +19,9 @@ class Chat {
         "INSERT INTO Messages (user_id, stream_id, body) VALUES (?, ?, ?)",
         [userId, streamId, message],
       );
-      return { messageId: results.insertId };
+      return results;
     } catch (error) {
-      throw new Error("Server error during message");
+      throw new Error("Server error while saving message");
     }
   }
 }
