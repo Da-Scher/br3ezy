@@ -18,10 +18,10 @@ exports.addMessage = async (req, res) => {
   const { userId, streamId, message } = req.body;
 
   try {
-    const savedMessage = await Chat.saveMessage({ userId, streamId, message });
+    const messageId = await Chat.saveMessage({ userId, streamId, message });
     res.status(201).json({
       success: true,
-      data: savedMessage,
+      data: messageId,
     });
   } catch (error) {
     console.error(error.message);

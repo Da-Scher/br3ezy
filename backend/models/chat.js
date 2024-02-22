@@ -19,7 +19,7 @@ class Chat {
         "INSERT INTO Messages (user_id, stream_id, body) VALUES (?, ?, ?)",
         [userId, streamId, message],
       );
-      return results;
+      return { messageId: results.insertId };
     } catch (error) {
       throw new Error("Server error while saving message");
     }
