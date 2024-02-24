@@ -4,6 +4,23 @@ const fs = require("fs");
 const output = fs.createWriteStream("./output");
 const path = require("path");
 const { AsyncSRT } = require("@eyevinn/srt");
+// ffmpeg node package
+const ffmpeg = require('fluent-ffmpeg');
+
+// input link
+// for now we are only using srt protocol
+const inputLink = 'srt://localhost:2000?mode=listener';
+
+function ffmpegTest() {
+    ffmpeg(inputLink).outputOptions([ '-c:v copy', '-c:a copy', 
+                                      '-f hls', '-hls_time 2', 
+                                      '-hls_list_size 3', '-hls_flags delete_segments+append_list'])
+                     .output('../stream/streamout.m3u8')
+                     .on('end', () => {
+                        console.log('finished');
+                     }).run();
+
+}
 
 let asyncSRT = new AsyncSRT();
 async function startServer(previousServer) {
@@ -30,6 +47,22 @@ async function startServer(previousServer) {
     });
     const acceptResult = await asyncSRT.accept(socket);
     console.log("accept result:", acceptResult);
+
+    // transmux?
+    
+ffmpeg(inputLink)
+  .outputOptions('-c:v', 'copy')
+  .outputOptions('-c:a', 'copy')
+  .outputOptions('-f', 'hls')
+  .outputOptions('-hls_time', '2')
+  .outputOptions('-hls_list_size', '3')
+  .outputOptions('-hls_flags', 'delete_segments+append_list')
+  .output('../stream/streamout.m3u8')
+  .on('start', () => { console.log('starting'); })
+  .on('end', () => { console.log('finished'); })
+  .on('error', (err) => { console.error('error:', err); })
+  .run();
+
     let readResult = await asyncSRT.read(acceptResult, 1316);
     while (readResult) {
       // read stream, close on disconnect
