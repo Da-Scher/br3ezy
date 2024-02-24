@@ -1,0 +1,22 @@
+  <article>
+
+    <img class="listing-photo" [src]="streamListing?.photo" alt="Screenshot of {{streamListing?.title}}"/>
+
+
+    <section class="listing-description">
+      <h2 class="listing-heading">{{streamListing?.title}}</h2>
+    </section>
+
+    <section>
+        <app-videoplayer></app-videoplayer>
+    </section>
+    
+    <section class="Stream Details">
+      <h2 class="section-heading">You are now watching {{ streamListing?.title }}'s stream!</h2>
+      <ul>
+        <li>Is this stream live? {{streamListing?.is_active}}</li>
+      </ul>
+    </section>
+
+
+  </article>
