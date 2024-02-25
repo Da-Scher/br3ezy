@@ -14,7 +14,7 @@ class Stream {
       "SELECT * FROM Streams WHERE id = ?",
       [stream_id]
     );
-    return stream ? stream[0] : null;
+    return stream ? { stream: stream[0] } : null;
   }
 
   static async searchStreams(keyword) {
