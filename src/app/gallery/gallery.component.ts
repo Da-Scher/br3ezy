@@ -14,13 +14,29 @@ import { ListingService } from '../listing.service'; // this service delivers th
 
 export class GalleryComponent {
 
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa'; // generic crap from the tutorial
-
-  streamListingList: StreamListing[] = []; // let there be an array which is hollow and empty
+  streamListingList: StreamListing[] = []; // Holds a list of Stream Listings
+  filteredListingList: StreamListing[] = []; // Holds a filtered list of Stream Listings
   listingService: ListingService = inject(ListingService); // inject data goodness from the listing service
 
+
   constructor() {
-    this.streamListingList = this.listingService.getAllStreamListings(); // Call function from listing service to get that data
+    this.listingService.getAllStreamListings().then((streamListingList: StreamListing[]) => {
+        this.streamListingList = streamListingList;         // Get all the listings and put them in the array
+        this.filteredListingList = streamListingList;      // start off the filtered list mirroring the array
+      });
+  }
+
+
+  filterResults(text: string) {
+    // if the search query is empty, show everything
+    if (!text) { 
+      this.filteredListingList = this.streamListingList;
+      return;
+    }
+    // else, filter by the query. for each stream listing in the listing list, check if the title matches the query
+    this.filteredListingList = this.streamListingList.filter(
+      streamListing => streamListing?.title.toLowerCase().includes(text.toLowerCase())
+    );
   }
 
 } // end class GalleryComponent

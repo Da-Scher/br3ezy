@@ -13,6 +13,14 @@ class Stream {
     }
   }
 
+  static async searchStream(stream_id) {
+    const [stream] = await pool.query(
+      "SELECT * FROM Streams WHERE id = ?",
+      [stream_id]
+    );
+    return stream ? { stream: stream[0] } : null;
+  }
+
   static async searchStreams(keyword) {
     try {
       const [streams] = await pool.query(

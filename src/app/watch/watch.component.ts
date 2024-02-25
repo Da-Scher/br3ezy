@@ -19,7 +19,11 @@ export class WatchComponent {
   streamListing: StreamListing | undefined; // it's okay to be undefined. plz dont crash
 
   constructor() {
-    const streamListingId = Number(this.route.snapshot.params['id']);
-    this.streamListing = this.listingService.getStreamListingById(streamListingId); // request the page-specific stream information by its ID
+    const streamID = parseInt(this.route.snapshot.params['id'],10);
+
+    this.listingService.getStreamListingById(streamID).then(streamListing => { // request stream from listing service by id
+      this.streamListing = streamListing;
+    });
+
   }
 }
