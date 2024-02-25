@@ -22,12 +22,10 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
-    "@eyevinn/srt": "^0.8.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "ffmpeg-cli": "^2.7.5",
     "fluent-ffmpeg": "^2.1.2",
     "ip": "^1.1.8",
     "jsonwebtoken": "^9.0.2",
@@ -36,6 +34,7 @@
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "tslib": "^2.3.0",
+    "video.js": "^8.10.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
@@ -50,10 +49,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "node-gyp": "^10.0.1",
     "nodemon": "^3.1.0",
-    "typescript": "~5.3.2",
-    "video.js": "^8.10.0"
+    "typescript": "~5.3.2"
   },
   "description": "<div align=\"center\"><img width=\"446\" alt=\"br3ezy_logo_banner\" src=\"https://github.com/Da-Scher/br3ezy/assets/56631681/aa5fa554-0878-4b49-a094-453e85539427\"></div>",
   "main": "index.js",

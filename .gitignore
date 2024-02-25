@@ -12,7 +12,3 @@
 
 #development
 output
-
-stream/*
-
-backend/stream/*
