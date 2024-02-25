@@ -10,7 +10,7 @@ export class ListingService {
   constructor(private http: HttpClient) { }
 
   // stream API url
-  url = 'https://localhost:8000/api/streams';
+  url = 'https://localhost:8000/api/stream';
 
   async getAllStreamListings(): Promise<StreamListing[]> { // get all streams by searching with an empty keyword
     const response = await fetch(`${this.url}/search?keyword=`);
