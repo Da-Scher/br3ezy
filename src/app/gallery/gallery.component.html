@@ -1,16 +1,19 @@
 <!-- some html inspired by https://angular.io/tutorial/first-app/first-app-lesson-02  -->
 
+
+<!-- The search bar-->
 <section>
     <form>
-      <input type="text" placeholder="This button is a facade">
-      <button class="primary" type="button">don't search</button>
+      <input type="text" placeholder="Filter streams" #filter> <!-- #filter creates a variable we can refer to which holds the input text-->
+      <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
     </form>
 </section>
 
+<!-- The Gallery of Streams -->
 <section class="results">
   <!-- *ngFor is an angular For loop, it will iterate thru the list of streamListings.-->
     <app-stream-listing
-    *ngFor="let streamListing of streamListingList" [streamListing]="streamListing"> 
+    *ngFor="let streamListing of filteredListingList" [streamListing]="streamListing"> 
   </app-stream-listing>
 
 </section>
