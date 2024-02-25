@@ -23,7 +23,7 @@ exports.addStream = async (req, res) => {
 exports.searchStream = async (req, res) => {
   try {
     const { stream_id } = req.params;
-    const stream = await Stream.getStream(stream_id);
+    const stream = await Stream.searchStream(stream_id);
     res.status(200).json(stream);
   } catch (error) {
     console.error(error);

@@ -9,7 +9,7 @@ class Stream {
     return results;
   }
 
-  static async getStream(stream_id) {
+  static async searchStream(stream_id) {
     const [stream] = await pool.query(
       "SELECT * FROM Streams WHERE id = ?",
       [stream_id]
