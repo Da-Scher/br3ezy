@@ -10,7 +10,7 @@ export class ListingService {
   constructor(private http: HttpClient) { }
 
   // search API url
-  url = 'https://localhost:8000/api/streams/search?keyword=';
+  url = 'https://localhost:8000/api/streams';
 
 
   streamListingList: StreamListing[] = [
@@ -81,14 +81,17 @@ export class ListingService {
   ]
 
 
-  async getAllStreamListings(): Promise<StreamListing[]> { // a nice function that returns the entire StreamListing array from above
-    const data = await fetch(this.url);
+  async getAllStreamListings(): Promise<StreamListing[]> { // get all streams by searching with an empty keyword
+    const data = await fetch(`${this.url}/search?keyword=`);
     return await data.json() ?? [];
     // return this.streamListingList;
   }
 
-  getStreamListingById(id: number) : StreamListing | undefined { // another cool function to get listings by their ID
-    return this.streamListingList.find(streamListing => streamListing.id === id);
+  async getStreamListingById(id: number) : Promise<StreamListing | undefined> { // get a single stream listing by its id
+    console.log("Listing service request stream id: ", id);
+     const data = await fetch(`${this.url}/get/${id}`);
+    //const data = await fetch(`https://localhost:8000/api/streams/get/1`);
+    return await data.json() ?? {};
   }
 
 }
