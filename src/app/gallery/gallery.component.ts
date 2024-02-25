@@ -20,17 +20,20 @@ export class GalleryComponent {
 
 
   constructor() {
-    this.streamListingList = this.listingService.getAllStreamListings(); // Get all the listings and put them in the array
-    this.filteredListingList = this.streamListingList; // start off the filtered list mirroring the array
+    this.listingService.getAllStreamListings().then((streamListingList: StreamListing[]) => {
+        this.streamListingList = streamListingList;         // Get all the listings and put them in the array
+        this.filteredListingList = streamListingList;      // start off the filtered list mirroring the array
+      });
   }
 
 
   filterResults(text: string) {
-    if (!text) {
+    // if the search query is empty, show everything
+    if (!text) { 
       this.filteredListingList = this.streamListingList;
       return;
     }
-
+    // else, filter by the query. for each stream listing in the listing list, check if the title matches the query
     this.filteredListingList = this.streamListingList.filter(
       streamListing => streamListing?.title.toLowerCase().includes(text.toLowerCase())
     );

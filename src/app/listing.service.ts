@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { StreamListing } from './streamlisting';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListingService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  // search API url
+  url = 'https://localhost:8000/api/streams/search?keyword=';
+
 
   streamListingList: StreamListing[] = [
     {
@@ -76,8 +81,10 @@ export class ListingService {
   ]
 
 
-  getAllStreamListings(): StreamListing[] { // a nice function that returns the entire StreamListing array from above
-    return this.streamListingList;
+  async getAllStreamListings(): Promise<StreamListing[]> { // a nice function that returns the entire StreamListing array from above
+    const data = await fetch(this.url);
+    return await data.json() ?? [];
+    // return this.streamListingList;
   }
 
   getStreamListingById(id: number) : StreamListing | undefined { // another cool function to get listings by their ID

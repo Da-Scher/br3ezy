@@ -9,6 +9,14 @@ class Stream {
     return results;
   }
 
+  static async getStream(stream_id) {
+    const [stream] = await pool.query(
+      "SELECT * FROM Streams WHERE id = ?",
+      [stream_id]
+    );
+    return stream ? stream[0] : null;
+  }
+
   static async searchStreams(keyword) {
     const [streams] = await pool.query(
       "SELECT * FROM Streams WHERE title LIKE ? OR description LIKE ?",
