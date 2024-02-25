@@ -39,6 +39,4 @@ export class GalleryComponent {
     );
   }
 
-
-
 } // end class GalleryComponent

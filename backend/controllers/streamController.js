@@ -19,15 +19,15 @@ exports.addStream = async (req, res) => {
   }
 };
 
-
-exports.getStream = async (req, res) => {
+// search for a single, specific stream
+exports.searchStream = async (req, res) => {
   try {
     const { stream_id } = req.params;
     const stream = await Stream.getStream(stream_id);
     res.status(200).json(stream);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Server error while searching streams" });
+    res.status(500).json({ error: "Server error while searching for a single stream" });
   }
 };
 
