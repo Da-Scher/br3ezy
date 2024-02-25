@@ -24,7 +24,10 @@ exports.searchStream = async (req, res) => {
   try {
     const { stream_id } = req.params;
     const stream = await Stream.searchStream(stream_id);
-    res.status(200).json(stream);
+    res.status(200).json({
+        succes: true,
+        data: stream,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error while searching for a single stream" });
