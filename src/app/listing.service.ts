@@ -13,8 +13,9 @@ export class ListingService {
   url = 'https://localhost:8000/api/streams';
 
   async getAllStreamListings(): Promise<StreamListing[]> { // get all streams by searching with an empty keyword
-    const data = await fetch(`${this.url}/search?keyword=`);
-    return await data.json() ?? [];
+    const response = await fetch(`${this.url}/search?keyword=`);
+    const { data } = await response.json();
+    return data ?? [];
   }
 
   async getStreamListingById(id: number) : Promise<StreamListing | undefined> { // get a single stream listing by its id
