@@ -20,8 +20,9 @@ export class ListingService {
 
   async getStreamListingById(id: number) : Promise<StreamListing | undefined> { // get a single stream listing by its id
     console.log("Listing service request stream id: ", id);
-     const data = await fetch(`${this.url}/get/${id}`);
-    return await data.json() ?? {};
+     const response = await fetch(`${this.url}/get/${id}`);
+     const { data } = await response.json();
+    return data ?? {};
   }
 
 }
