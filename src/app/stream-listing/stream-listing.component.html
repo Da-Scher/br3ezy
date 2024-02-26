@@ -7,10 +7,12 @@
 
     <h2 class="listing-heading">{{ streamListing.title }}</h2>
     <p class="streamListing.id"> <b>Stream ID: </b>{{streamListing.id}}</p>
-    <p class="streamListing.user_id"> <b>User ID: </b>{{streamListing.user_id}}</p>
+    <p class="streamListing.user_id"> <b>User ID: </b>{{streamListing.userId}}</p>
     <p class="streamListing.description"> <b>Description: </b>{{streamListing.description}}</p>
-    <p class="streamListing.start_time"> <b>Start Time: </b>{{streamListing.start_time}}</p>
-    <p class="streamListing.is_active"> <b>Live: </b>{{streamListing.is_active}}</p>
+    <p class="streamListing.start_time"> <b>Start Time: </b>{{streamListing.startTime}}</p>
+    <p class="streamListing.is_active"> <b>Live: </b>{{streamListing.isActive}}</p>
+    <p class="streamListing.is_active"> <b>URL: </b>{{streamListing.url}}</p>
+
 
     <a [routerLink]="['/watch', streamListing.id]">Click on me to view the stream!</a> <!-- create a dynamic link based on stream ID-->
   </section>
