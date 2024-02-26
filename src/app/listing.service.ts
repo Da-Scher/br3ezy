@@ -22,7 +22,22 @@ export class ListingService {
     console.log("Listing service request stream id: ", id);
      const response = await fetch(`${this.url}/get/${id}`);
      const { data } = await response.json();
-    return data ?? {};
+
+
+    console.log("Got data object:", data);
+
+    const streamListing: StreamListing = {
+      description: data.stream.description,
+      id: data.stream.id,
+      is_active: data.stream.is_active,
+      photo: data.stream.photo,
+      start_time: data.stream.start_time,
+      title: data.stream.title,
+      user_id: data.stream.user_id
+    }
+
+    console.log("Returning streamListing ID: ", streamListing.id);
+    return streamListing ?? {};
   }
 
 }
