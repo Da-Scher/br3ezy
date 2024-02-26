@@ -9,7 +9,7 @@ class Chat {
       );
       return messages;
     } catch (error) {
-      throw new Error("Server error while fetching chat history");
+      throw new Error(`Error fetching chat history: ${error.message}`);
     }
   }
 
@@ -21,7 +21,7 @@ class Chat {
       );
       return { messageId: results.insertId };
     } catch (error) {
-      throw new Error("Server error while saving message");
+      throw new Error(`Error saving message: ${error.message}`);
     }
   }
 }
