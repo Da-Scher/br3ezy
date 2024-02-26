@@ -4,24 +4,24 @@ class Chat {
   static async fetchChatHistory(streamId) {
     try {
       const [messages] = await pool.query(
-        "SELECT * FROM Messages WHERE stream_id = ? ORDER BY timestamp ASC",
+        "SELECT * FROM Messages WHERE streamId = ? ORDER BY timestamp ASC",
         [streamId],
       );
       return messages;
     } catch (error) {
-      throw new Error("Server error while fetching chat history");
+      throw new Error(`Error fetching chat history: ${error.message}`);
     }
   }
 
   static async saveMessage({ userId, streamId, message }) {
     try {
       const [results] = await pool.query(
-        "INSERT INTO Messages (user_id, stream_id, body) VALUES (?, ?, ?)",
+        "INSERT INTO Messages (userId, streamId, body) VALUES (?, ?, ?)",
         [userId, streamId, message],
       );
       return { messageId: results.insertId };
     } catch (error) {
-      throw new Error("Server error while saving message");
+      throw new Error(`Error saving message: ${error.message}`);
     }
   }
 }
