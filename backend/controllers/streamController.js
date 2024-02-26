@@ -26,10 +26,10 @@ exports.addStream = async (req, res) => {
 };
 
 exports.getStream = async (req, res) => {
-  const { stream_id } = req.params;
+  const { streamId } = req.params;
 
   try {
-    const stream = await Stream.getStream(stream_id);
+    const stream = await Stream.getStream(streamId);
     console.log("Stream found successfully");
     res.status(200).json({
       success: true,

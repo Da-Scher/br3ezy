@@ -4,7 +4,7 @@ class Stream {
   static async createStream({ userId, title, description, photo }) {
     try {
       const [results] = await pool.query(
-        "INSERT INTO Streams (user_id, title, description, photo) VALUES (?, ?, ?, ?)",
+        "INSERT INTO Streams (userId, title, description, photo) VALUES (?, ?, ?, ?)",
         [userId, title, description, photo],
       );
       return { streamId: results.insertId };
@@ -13,10 +13,10 @@ class Stream {
     }
   }
 
-  static async getStream(stream_id) {
+  static async getStream(streamId) {
     try {
       const [stream] = await pool.query("SELECT * FROM Streams WHERE id = ?", [
-        stream_id,
+        streamId,
       ]);
       return stream ? { stream: stream[0] } : null;
     } catch (error) {

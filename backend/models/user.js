@@ -11,7 +11,7 @@ class User {
       if (rows.length > 0) throw new Error("Username or email already exist");
       const hashedPassword = await bcrypt.hash(password, 8);
       const [results] = await pool.query(
-        "INSERT INTO Users (username, email, password_hash) VALUES (?, ?, ?)",
+        "INSERT INTO Users (username, email, passwordHash) VALUES (?, ?, ?)",
         [username, email, hashedPassword],
       );
       return { userId: results.insertId };
@@ -36,7 +36,7 @@ class User {
   static async login({ username, password }) {
     try {
       const user = await this.findByUsername(username);
-      const isMatch = await bcrypt.compare(password, user.password_hash);
+      const isMatch = await bcrypt.compare(password, user.passwordHash);
       if (!isMatch) throw new Error("Invalid password");
       return { userId: user.id };
     } catch (error) {
