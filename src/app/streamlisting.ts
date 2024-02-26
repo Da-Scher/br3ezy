@@ -3,9 +3,10 @@
 export interface StreamListing {
   description: string;
   id: number
-  is_active: boolean;
+  isActive: boolean;
   photo: string;
-  start_time: number;
+  startTime: number;
   title: string;
-  user_id: number;
+  userId: number;
+  url: string;
   }

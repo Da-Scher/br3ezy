@@ -29,11 +29,12 @@ export class ListingService {
     const streamListing: StreamListing = {
       description: data.stream.description,
       id: data.stream.id,
-      is_active: data.stream.is_active,
+      isActive: data.stream.is_active,
       photo: data.stream.photo,
-      start_time: data.stream.start_time,
+      startTime: data.stream.start_time,
       title: data.stream.title,
-      user_id: data.stream.user_id
+      userId: data.stream.user_id,
+      url: data.stream.url
     }
 
     console.log("Returning streamListing ID: ", streamListing.id);
