@@ -1,27 +1,20 @@
 const Stream = require("../models/stream");
-const { startFfmpegStream } = require("../services/streamService");
+// TODO: start ffmpeg with addStream
+// const { startFfmpegStream } = require("../services/streamService");
 
 exports.addStream = async (req, res) => {
   const { userId, title, description, photo } = req.body;
 
   try {
-    const streamId = await Stream.createStream({
+    const streamId = await Stream.createStream(
       userId,
       title,
       description,
       photo,
-    });
-    console.log("Stream added successfully");
-    res.status(201).json({
-      success: true,
-      data: streamId,
-    });
+    );
+    res.sendSuccess(201, streamId);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };
 
@@ -30,17 +23,9 @@ exports.getStream = async (req, res) => {
 
   try {
     const stream = await Stream.getStream(streamId);
-    console.log("Stream found successfully");
-    res.status(200).json({
-      success: true,
-      data: stream,
-    });
+    res.sendSuccess(200, stream);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };
 
@@ -49,16 +34,8 @@ exports.searchStreams = async (req, res) => {
 
   try {
     const streams = await Stream.searchStreams(keyword);
-    console.log("Searched streams successfully");
-    res.status(200).json({
-      success: true,
-      data: streams,
-    });
+    res.sendSuccess(200, streams);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };

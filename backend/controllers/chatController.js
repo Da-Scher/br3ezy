@@ -1,21 +1,13 @@
 const Chat = require("../models/chat");
 
 exports.fetchChatHistory = async (req, res) => {
-  const streamId = req.params.streamId;
+  const { streamId } = req.params;
 
   try {
     const messages = await Chat.fetchChatHistory(streamId);
-    console.log("Chat history fetched successfully");
-    res.status(200).json({
-      success: true,
-      data: messages,
-    });
+    res.sendSuccess(200, messages);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };
 
@@ -23,17 +15,9 @@ exports.addMessage = async (req, res) => {
   const { userId, streamId, message } = req.body;
 
   try {
-    const messageId = await Chat.saveMessage({ userId, streamId, message });
-    console.log("Message saved successfully");
-    res.status(201).json({
-      success: true,
-      data: messageId,
-    });
+    const messageId = await Chat.saveMessage(userId, streamId, message);
+    res.sendSuccess(201, messageId);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };

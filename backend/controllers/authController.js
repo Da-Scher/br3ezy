@@ -9,17 +9,9 @@ exports.register = async (req, res) => {
 
   try {
     const userId = await User.register(username, email, password);
-    console.log("User registered successfully");
-    res.status(201).json({
-      success: true,
-      data: userId,
-    });
+    res.sendSuccess(201, userId);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };
 
@@ -28,19 +20,9 @@ exports.login = async (req, res) => {
 
   try {
     const userId = await User.login(username, password);
-    const token = await jwt.sign(userId, secretKey, { expiresIn: "1h" });
-    console.log("User logged in successfully");
-    res.json({
-      success: true,
-      data: {
-        token: token,
-      },
-    });
+    const token = jwt.sign(userId, secretKey, { expiresIn: "1h" });
+    res.sendSuccess(200, { token: token });
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    res.sendError(500, error);
   }
 };
