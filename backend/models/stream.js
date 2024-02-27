@@ -10,18 +10,20 @@ class Stream {
   }
 
   static async getStream(streamId) {
-    const [stream] = await pool.query("SELECT * FROM Streams WHERE id = ?", [
+    const [rows] = await pool.query("SELECT * FROM Streams WHERE id = ?", [
       streamId,
     ]);
-    return stream ? { stream: stream[0] } : null;
+    if (rows.length === 0) throw new Error(`Stream not found with ID: ${streamId}`);
+    return { stream: rows[0] };
   }
 
   static async searchStreams(keyword) {
-    const [streams] = await pool.query(
+    const [rows] = await pool.query(
       "SELECT * FROM Streams WHERE title LIKE ? OR description LIKE ?",
       [`%${keyword}%`, `%${keyword}%`],
     );
-    return streams;
+    if (rows.length === 0) throw new Error(`No results found for ${keyword}`);
+    return rows;
   }
 }
 

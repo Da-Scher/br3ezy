@@ -2,11 +2,11 @@ const pool = require("../db/db");
 
 class Chat {
   static async fetchChatHistory(streamId) {
-    const [messages] = await pool.query(
+    const [rows] = await pool.query(
       "SELECT * FROM Messages WHERE streamId = ? ORDER BY timestamp ASC",
       [streamId],
     );
-    return messages;
+    return rows;
   }
 
   static async saveMessage(userId, streamId, message) {
