@@ -2,6 +2,7 @@ const express = require("express");
 const https = require("https");
 const cors = require("cors");
 const { Server } = require("socket.io");
+const { responseHandler } = require("./middleware/responseHandler");
 const path = require("path");
 const httpsOptions = require("./config/httpsOptions");
 const chatService = require("./services/chatService");
@@ -17,6 +18,9 @@ startFfmpegStream();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Response Middleware
+app.use(responseHandler);
 
 // Setup routes
 app.use("/api/auth", authRoutes);
