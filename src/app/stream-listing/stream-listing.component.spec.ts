@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
 import { StreamListingComponent } from './stream-listing.component';
 
 describe('StreamListingComponent', () => {
@@ -8,7 +8,8 @@ describe('StreamListingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StreamListingComponent]
+      imports: [StreamListingComponent],
+      providers: [ { provide: ActivatedRoute, useValue: {}}]
     })
     .compileComponents();
     
