@@ -2,15 +2,16 @@
   "name": "br3ezy",
   "version": "0.0.1",
   "scripts": {
-    "start-backend": "node backend/index.js",
+    "start-backend": "node backend/server.js",
     "start-frontend": "ng serve",
-    "dev-backend": "nodemon backend/index.js",
+    "dev-backend": "nodemon backend/server.js",
     "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
     "dev": "concurrently \"npm run dev-backend\" \"npm run start-frontend\"",
     "ng": "ng",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "jest": "jest"
   },
   "private": true,
   "dependencies": {
@@ -44,12 +45,14 @@
     "@types/jasmine": "~5.1.0",
     "concurrently": "^8.2.2",
     "jasmine-core": "~5.1.0",
+    "jest": "^29.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "nodemon": "^3.1.0",
+    "supertest": "^6.3.4",
     "typescript": "~5.3.2"
   },
   "description": "<div align=\"center\"><img width=\"446\" alt=\"br3ezy_logo_banner\" src=\"https://github.com/Da-Scher/br3ezy/assets/56631681/aa5fa554-0878-4b49-a094-453e85539427\"></div>",
