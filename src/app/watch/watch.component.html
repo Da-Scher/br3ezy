@@ -8,14 +8,17 @@
     </section>
 
     <section>
-        <app-videoplayer></app-videoplayer>
+        <app-videoplayer [streamURL]="streamListing?.url"></app-videoplayer>
     </section>
     
     <section class="Stream Details">
       <h2 class="section-heading">You are now watching {{ streamListing?.title }}'s stream!</h2>
       <ul>
         <li>Is this stream live? {{streamListing?.isActive}}</li>
+        <li>Stream URL {{streamListing?.url}}</li>
+
       </ul>
+    
     </section>
 
 
