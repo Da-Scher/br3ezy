@@ -2,9 +2,9 @@
   "name": "br3ezy",
   "version": "0.0.1",
   "scripts": {
-    "start-backend": "node backend/index.js",
+    "start-backend": "node backend/server.js",
     "start-frontend": "ng serve",
-    "dev-backend": "nodemon backend/index.js",
+    "dev-backend": "nodemon backend/server.js",
     "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
     "dev": "concurrently \"npm run dev-backend\" \"npm run start-frontend\"",
     "ng": "ng",
