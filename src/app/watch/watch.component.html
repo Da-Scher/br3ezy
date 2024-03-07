@@ -1,8 +1,4 @@
   <article>
-
-    <img class="listing-photo" [src]="streamListing?.photo" alt="Screenshot of {{streamListing?.title}}"/>
-
-
     <section class="listing-description">
       <h2 class="listing-heading">{{streamListing?.title}}</h2>
     </section>
@@ -17,6 +13,12 @@
         <li>Is this stream live? {{streamListing?.isActive}}</li>
         <li>Stream URL {{streamListing?.url}}</li>
 
+        <p class="streamListing.description"> <b>Description: </b>{{streamListing?.description}}</p>
+        <p class="streamListing.id"> <b>Stream ID: </b>{{streamListing?.id}}</p>
+        <p class="streamListing.id"> <b>User ID: </b>{{streamListing?.userId}}</p>
+        <p class="streamListing.start_time"> <b>Start Time: </b>{{streamListing?.startTime}}</p>
+        <p class="streamListing.is_active"> <b>Live: </b>{{streamListing?.isActive}}</p>
+        <p class="streamListing.url"> <b>URL: </b>{{streamListing?.url}}</p>
       </ul>
     
     </section>
