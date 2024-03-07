@@ -1,13 +1,13 @@
-
 <section class="listing">
 
-    <a [routerLink]="['/watch', streamListing.id]">
-      <img class="listing-photo" [src]="streamListing.photo" alt="Screenshot of {{streamListing.id}}"> 
-    </a>
+  <!-- Stream Photo links to stream page -->
+  <a [routerLink]="['/watch', streamListing.id]">
+    <img class="listing-photo" [src]="streamListing.photo" alt="Screenshot of {{streamListing.id}}"> 
+  </a>
 
-    <h2 class="listing-heading">
-      <a [routerLink]="['/watch', streamListing.id]">{{ streamListing.title }}</a> <!-- create a dynamic link based on stream ID-->
+  <!-- Display Title as clickable link-->
+  <h2 class="listing-heading">
+    <a [routerLink]="['/watch', streamListing.id]">{{ streamListing.title }}</a> <!-- create a dynamic link based on stream ID-->
+  </h2>
 
-      </h2>
-
-  </section>
+</section>
