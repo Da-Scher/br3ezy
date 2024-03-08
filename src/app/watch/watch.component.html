@@ -1,22 +1,30 @@
-  <article>
+<article>
 
-    <img class="listing-photo" [src]="streamListing?.photo" alt="Screenshot of {{streamListing?.title}}"/>
-
-
+  <!-- Display Title -->
+  <div class="responsive-details">
     <section class="listing-description">
       <h2 class="listing-heading">{{streamListing?.title}}</h2>
     </section>
+  </div>
 
+  <!-- Display Video Player Component -->
+  <div class="video-container">
     <section>
-        <app-videoplayer></app-videoplayer>
+      <app-videoplayer [streamURL]="streamListing?.url"></app-videoplayer>
     </section>
-    
+  </div>
+
+  <!-- Display Stream Details -->
+  <div class="responsive-details">
     <section class="Stream Details">
       <h2 class="section-heading">You are now watching {{ streamListing?.title }}'s stream!</h2>
-      <ul>
-        <li>Is this stream live? {{streamListing?.isActive}}</li>
-      </ul>
+      <p class="streamListing.description"> <b>Description: </b>{{streamListing?.description}}</p>
+      <p class="streamListing.id"> <b>Stream ID: </b>{{streamListing?.id}}</p>
+      <p class="streamListing.id"> <b>User ID: </b>{{streamListing?.userId}}</p>
+      <p class="streamListing.start_time"> <b>Start Time: </b>{{streamListing?.startTime}}</p>
+      <p class="streamListing.is_active"> <b>Live: </b>{{streamListing?.isActive}}</p>
+      <p class="streamListing.url"> <b>URL: </b>{{streamListing?.url}}</p>
     </section>
+  </div>
 
-
-  </article>
+</article>

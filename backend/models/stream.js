@@ -14,7 +14,7 @@ class Stream {
       streamId,
     ]);
     if (rows.length === 0) throw new Error(`Stream not found with ID: ${streamId}`);
-    return { stream: rows[0] };
+    return rows[0];
   }
 
   static async searchStreams(keyword) {

@@ -6,6 +6,13 @@
     padding-bottom: 30px;
   }
   .listing-heading {
+    /* Normal link style */
+    a {
+      color: rgb(7, 95, 30);
+      text-decoration: none; /* Remove underline if desired */
+    }
+
+    
     color: #05781e;
     padding: 10px 20px 0 20px;
   }

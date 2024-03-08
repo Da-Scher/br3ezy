@@ -18,7 +18,7 @@ CREATE TABLE Streams (
     userId INT,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    url VARCHAR(255),
+    url VARCHAR(1024),
     photo VARCHAR(255),
     startTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     isActive BOOLEAN DEFAULT TRUE,
