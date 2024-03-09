@@ -1,9 +1,9 @@
 const request = require("supertest");
-const app = require("../app");
-const pool = require("../db/db");
+const app = require("../src/app");
+const pool = require("../src/db/db");
 const bcrypt = require("bcryptjs");
-const User = require("../models/user");
-const Stream = require("../models/stream");
+const User = require("../src/models/user");
+const Stream = require("../src/models/stream");
 
 describe("Black Box Acceptance Tests", () => {
   describe("Authentication Tests", () => {

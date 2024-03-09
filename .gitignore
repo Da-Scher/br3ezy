@@ -1,14 +1,8 @@
 #dependencies
 /node_modules
 
-#cache
-.angular
-
-#distribution
-/dist
-
-#environment
-.env
+#macOS stores
+.DS_Store
 
 #development
 output
