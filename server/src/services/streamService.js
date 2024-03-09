@@ -5,7 +5,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const inputLink = "srt://localhost:2000?mode=listener";
 
 // output path
-const outputPath = path.join(__dirname, "../stream/streamout.m3u8");
+const outputPath = path.join(__dirname, "../../stream/streamout.m3u8");
 
 function startFfmpegStream() {
   ffmpeg(inputLink)

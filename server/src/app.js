@@ -24,6 +24,7 @@ app.use(
     path.join(__dirname, "..", "..", "client", "dist", "br3ezy", "browser"),
   ),
 );
+app.use("/stream", express.static(path.join(__dirname, "..", "stream")));
 app.get("*", (req, res) => {
   res.sendFile(
     path.join(
@@ -38,6 +39,5 @@ app.get("*", (req, res) => {
     ),
   );
 });
-app.use("/stream", express.static(path.join(__dirname, "stream")));
 
 module.exports = app;

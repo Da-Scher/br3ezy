@@ -1,35 +1,38 @@
 {
   "name": "br3ezy",
   "version": "0.0.1",
-  "scripts": {
-    "dev": "concurrently \"npm run dev -w server\" \"npm run start -w client\"",
-    "start": "npm run start -w server",
-    "build": "npm run ng build -w client"
-  },
   "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
-  "description": "<div align=\"center\"><img width=\"446\" alt=\"br3ezy_logo_banner\" src=\"https://github.com/Da-Scher/br3ezy/assets/56631681/aa5fa554-0878-4b49-a094-453e85539427\"></div>",
-  "main": "server/src/server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Da-Scher/br3ezy.git"
-  },
+  "description": "br3ezy - A federated streaming platform",
   "keywords": [
     "live-stream",
     "vod",
     "federated",
     "self-hosted"
   ],
-  "author": "Dakota Schaeffer (dak.scher@proton.me)",
+  "homepage": "https://github.com/Da-Scher/br3ezy#readme",
   "license": "GPL-2.0",
+  "contributors": [
+    "Joe Barteluce (joe.barteluce@gmail.com)",
+    "Dakota Schaeffer (dak.scher@proton.me)",
+    "Justin Sprecco (justin@sprecco.com)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Da-Scher/br3ezy.git"
+  },
   "bugs": {
     "url": "https://github.com/Da-Scher/br3ezy/issues"
   },
-  "homepage": "https://github.com/Da-Scher/br3ezy#readme",
-  "dependencies": {
-    "dotenv": "^16.4.5"
-  }
+  "engines": {
+    "node": ">=20.11.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run start -w client\"",
+    "start": "npm run start -w server",
+    "build": "npm run build -w client"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
 }
