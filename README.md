@@ -55,7 +55,7 @@ Ensure they are placed in the `cert` directory.
 1. Configure `.env` as stated above.
 1. Generate certificates as stated above.
 1. Run `npm install` to install dependencies.
-1. 1. Initialize database with `npm run db:init -w server`.
+1. Initialize database with `npm run db:init -w server`.
 1. Run `npm run build` to build static files.
 1. Run `npm run start` to start express server.
 1. Point your broadcasting software to `srt://<hostname>:2000` to start streaming.
