@@ -4,7 +4,7 @@ class Stream {
   static async createStream(userId, title, description, photo) {
     const [results] = await pool.query(
       "INSERT INTO Streams (userId, title, description, photo) VALUES (?, ?, ?, ?)",
-      [userId, title, description, photo],
+      [userId, streamUrl, title, description, photo],
     );
     return { streamId: results.insertId };
   }

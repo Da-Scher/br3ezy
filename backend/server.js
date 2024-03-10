@@ -15,6 +15,9 @@ const server = https.createServer(httpsOptions, app);
 const io = new Server(server);
 chatService(io);
 
+// Recieve fedMessage
+https.get('/fedIn/?')
+
 // Start HTTPS server
 server.listen(8000, () => {
   console.log("Server running at https://localhost:8000");

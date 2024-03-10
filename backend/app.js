@@ -5,6 +5,7 @@ const { responseHandler } = require("./middleware/responseHandler");
 const authRoutes = require("./routes/authRoutes");
 const streamRoutes = require("./routes/streamRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const fedeRoutes = require("./routes/fedeRoutes");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(responseHandler);
 app.use("/api/auth", authRoutes);
 app.use("/api/stream", streamRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/fede", fedeRoutes);
 
 // Serve static files
 app.use(express.static("dist/br3ezy/browser"));

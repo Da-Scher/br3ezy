@@ -23,7 +23,7 @@ CREATE TABLE Streams (
     startTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (userId) REFERENCES Users(id)
-);
+
 
 -- Create Messages table
 CREATE TABLE Messages (
@@ -34,4 +34,9 @@ CREATE TABLE Messages (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES Users(id),
     FOREIGN KEY (streamId) REFERENCES Streams(id)
+);
+
+-- Create federation table
+CREATE TABLE Federation (
+    apiUrl VARCHAR(1024) PRIMARY KEY -- apiUrl is different from Streams(url).
 );
