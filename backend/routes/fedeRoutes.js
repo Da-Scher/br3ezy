@@ -4,5 +4,6 @@ const fedeController = require("../controllers/fedeController.js");
 
 router.post("/fedIn", fedeController.recv);
 
-router.get("/fedOut", fedeController.outp)
+router.get("/fedOut", fedeController.breeze);
 
+module.exports = router;

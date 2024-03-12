@@ -12,7 +12,7 @@ exports.recv = async (req, res) => {
   const { userId, streamUrl, title, description, photo } = req.body;
 
   try {
-    const streamId = StreamData.createStream(userId, streamUrl title, description, photo);
+    const streamId = StreamData.createStream(userId, streamUrl, title, description, photo);
     res.sendSuccess(201, streamId);
 
   } catch(err) {
@@ -40,11 +40,11 @@ exports.breeze = async (req, res) => {
   };
   fedeTuples.map((ally) => {
     // send signal to change status to live.
-    const options = [
+    const options = {
       url: ally.apiUrl,
       method: 'POST',
       json: jsonOut
-    ];
+  };
     request(options, (error, response, body) => {
       if(error) console.error(`Error transmitting to ${ally.apiUrl}:\n${error}`);
 
