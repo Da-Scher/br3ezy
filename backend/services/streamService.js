@@ -1,5 +1,6 @@
 const { exec } = require("child_process");
 const path = require("path");
+const { breeze } = require("../controllers/fedeController");
 
 // ffmpeg node package
 const ffmpeg = require("fluent-ffmpeg");
@@ -32,24 +33,33 @@ const outputPath = path.join(__dirname, "../stream/streamout.m3u8"); // Adjust b
 
 // transmux?
 function startFfmpegStream() {
-  ffmpeg(inputLink)
-    .outputOptions("-c:v", "copy")
-    .outputOptions("-c:a", "copy")
-    .outputOptions("-f", "hls")
-    .outputOptions("-hls_time", "2")
-    .outputOptions("-hls_list_size", "3")
-    .outputOptions("-hls_flags", "delete_segments+append_list")
-    .output(outputPath)
-    .on("start", () => {
-      console.log("starting");
-    })
-    .on("end", () => {
-      console.log("finished");
-    })
-    .on("error", (err) => {
-      console.error("error:", err);
-    })
-    .run();
+ffmpeg(inputLink)
+  .ffprobe((err, info) => {
+    if (err) {
+      console.error('Error getting stream information:', err);
+      // Handle error (e.g., display message, retry)
+    } else {
+      console.log('Stream information retrieved:', info);
+      // Update database with stream details
+      breeze();
+      // start the stream processing instance
+      ffmpeg(inputLink)
+          .outputOptions("-c:v", "copy")
+          .outputOptions("-c:a", "copy")
+          .outputOptions("-f", "hls")
+          .outputOptions("-hls_time", "2")
+          .outputOptions("-hls_list_size", "3")
+          .outputOptions("-hls_flags", "delete_segments+append_list")
+          .output(outputPath)
+        .output('output.mp4')
+        .on('end', () => {
+          console.log('Stream processing complete');
+        })
+        .run();
+        }
+  });
+
+// Stream processing with ffmpeg (optional)
 }
 
 module.exports = { startFfmpegStream };
