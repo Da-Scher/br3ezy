@@ -40,3 +40,26 @@ CREATE TABLE Messages (
 CREATE TABLE Federation (
     apiUrl VARCHAR(1024) PRIMARY KEY -- apiUrl is different from Streams(url).
 );
+
+-- Roles
+CREATE TABLE Roles (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(128)
+);
+
+-- Roles is like a constant value, this should never be changed or be changable.
+INSERT INTO Roles (id, name) VALUES
+  (1, 'Viewer'),
+  (2, 'Moderator'),
+  (3, 'Streamer');
+
+
+-- User Roles
+CREATE TABLE User_Roles (
+  user_id INT,
+  role_id INT,
+  PRIMARY KEY (user_id, role_id),
+  FOREIGN KEY (user_id) REFERENCES Users(id),
+  FOREIGN KEY (role_id) REFERENCES Roles(id)
+);
+
