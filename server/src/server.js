@@ -1,3 +1,4 @@
+require("dotenv").config();
 const https = require("https");
 const { Server } = require("socket.io");
 const app = require("./app");
@@ -16,6 +17,7 @@ const io = new Server(server);
 chatService(io);
 
 // Start HTTPS server
-server.listen(8000, () => {
-  console.log("Server running at https://localhost:8000");
+const port = process.env.PORT || 8000;
+server.listen(port, () => {
+  console.log(`Server running at https://localhost:${port}`);
 });

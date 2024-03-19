@@ -1,0 +1,7 @@
+#distribution
+/dist/
+
+#cache
+.angular
+
+

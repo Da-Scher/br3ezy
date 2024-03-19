@@ -19,10 +19,25 @@ app.use("/api/stream", streamRoutes);
 app.use("/api/chat", chatRoutes);
 
 // Serve static files
-app.use(express.static("dist/br3ezy/browser"));
-app.get("/", (req, res) => {
-  res.sendFile("/dist/br3ezy/browser/index.html");
+app.use(
+  express.static(
+    path.join(__dirname, "..", "..", "client", "dist", "br3ezy", "browser"),
+  ),
+);
+app.use("/stream", express.static(path.join(__dirname, "..", "stream")));
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "..",
+      "..",
+      "client",
+      "dist",
+      "br3ezy",
+      "browser",
+      "index.html",
+    ),
+  );
 });
-app.use("/stream", express.static(path.join(__dirname, "stream")));
 
 module.exports = app;
