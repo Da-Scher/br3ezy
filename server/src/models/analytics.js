@@ -33,7 +33,7 @@ class Analytics {
       "INSERT INTO streamMetrics (sessionId, averageSpeed, errors) VALUES (?, ?, ?)",
       [sessionId, averageSpeed, errors],
     );
-    return { metricsId: results.id };
+    return { metricsId: results.insertId };
   }
 }
 
