@@ -20,13 +20,12 @@
 <body>
     <div class="chat-box" id="chatBox">
 
-        <div class="chat-header">
+        <!-- <div class="chat-header">
             <h2>Chat</h2>
-        </div>
+        </div> -->
 
         <div class="chat-messages" id="chatMessages">
-            <div *ngFor="let msg of messages" class="message">
-                {{ msg }}
+            <div *ngFor="let msg of messages" class="message" [innerHTML]="msg">
             </div>
         </div>
 

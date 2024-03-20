@@ -3,7 +3,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 600px; /* Adjust width as needed */
-    height: 300px; /* Adjust height as needed */
+    height: 200px; /* Adjust height as needed */
     overflow: hidden; /* Hide overflow to prevent scrollbars on the chat box */
     position: relative; /* Position relative for absolute positioning of chat-messages */
   }
@@ -13,7 +13,7 @@
     flex-direction: column-reverse;
     padding: 10px;
     overflow: auto; 
-    height: calc(100% - 130px); 
+    height: calc(100% - 60px); 
     scroll-behavior: smooth;
   }
   
