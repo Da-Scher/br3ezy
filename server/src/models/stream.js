@@ -13,11 +13,12 @@ class Stream {
     const [rows] = await pool.query("SELECT * FROM streams WHERE id = ?", [
       streamId,
     ]);
-    if (rows.length === 0) throw new Error(`Stream not found with ID: ${streamId}`);
+    if (rows.length === 0)
+      throw new Error(`Stream not found with ID: ${streamId}`);
     return rows[0];
   }
 
-  static async searchstreams(keyword) {
+  static async searchStreams(keyword) {
     const [rows] = await pool.query(
       "SELECT * FROM streams WHERE title LIKE ? OR description LIKE ?",
       [`%${keyword}%`, `%${keyword}%`],
