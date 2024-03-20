@@ -6,7 +6,7 @@ class User {
     await this.checkUser(username, email);
     const hashedPassword = await bcrypt.hash(password, 8);
     const [results] = await pool.query(
-      "INSERT INTO Users (username, email, passwordHash) VALUES (?, ?, ?)",
+      "INSERT INTO users (username, email, passwordHash) VALUES (?, ?, ?)",
       [username, email, hashedPassword],
     );
     return { userId: results.insertId };
@@ -21,7 +21,7 @@ class User {
 
   static async checkUser(username, email) {
     const [rows] = await pool.query(
-      "SELECT * FROM Users WHERE username = ? OR email = ?",
+      "SELECT * FROM users WHERE username = ? OR email = ?",
       [username, email],
     );
     if (rows.length > 0) throw new Error("Username or email already exist");
@@ -29,7 +29,7 @@ class User {
 
   static async findByUsername(username) {
     const [rows] = await pool.query(
-      "SELECT * FROM Users WHERE username = ?",
+      "SELECT * FROM users WHERE username = ?",
       [username],
     );
     if (rows.length === 0) throw new Error("User not found");
