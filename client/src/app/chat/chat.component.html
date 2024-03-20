@@ -1,0 +1,42 @@
+<!-- <div *ngFor="let msg of messages">
+    {{ msg }}
+  </div>
+  <input [(ngModel)]="message" (keydown.enter)="sendMessage()">
+  <button (click)="sendMessage()">Send</button>
+   -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Box</title>
+    <link rel="stylesheet" href="chat.component.css">
+</head>
+
+
+<body>
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-header">
+            <h2>Chat</h2>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div *ngFor="let msg of messages" class="message">
+                {{ msg }}
+            </div>
+        </div>
+
+        <div class="send-bar">
+            <input type="text" class="message-input" placeholder="Type your message..." [(ngModel)]="message"
+                (keydown.enter)="sendMessage()">
+            <button class="send-button" (click)="sendMessage()">Send</button>
+        </div>
+        
+    </div>
+</body>
+
+</html>
