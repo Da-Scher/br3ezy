@@ -22,17 +22,10 @@ export class ChatComponent implements OnInit {
     this.socket = io('https://localhost:8000');
 
     this.socket.on('receiveMessage', (msg: string) => {
-      this.messages.push(JSON.stringify(msg));
-      this.scrollToBottom();
+      this.messages.unshift(JSON.stringify(msg));
     });
   }
-
-  scrollToBottom() {
-    var chatMessages = document.getElementById("chatMessages");
-    if(chatMessages)
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
+  
   sendMessage() {
     const payload = {
       "userId": 1,
