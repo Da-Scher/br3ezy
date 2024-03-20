@@ -10,9 +10,10 @@ class Chat {
   }
 
   static async saveMessage(message) {
+
     const [results] = await pool.query(
-      "INSERT INTO Messages (userId, streamId, body) VALUES (?)",
-      [message],
+      "INSERT INTO Messages (userId, streamId, body) VALUES (?,?,?)",
+      [message.userId, message.streamId, message.body],
     );
     return { messageId: results.insertId };
   }
