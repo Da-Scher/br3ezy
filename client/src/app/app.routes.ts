@@ -4,9 +4,10 @@ import { LoginComponent } from "./login/login.component";
 import { WatchComponent } from "./watch/watch.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 import { AdminComponent } from "./admin/admin.component";
+import { adminGuard } from "./admin/admin.guard";
 
 export const routes: Routes = [
-  { path: "admin", component: AdminComponent },
+  { path: "admin", component: AdminComponent, canActivate: [adminGuard] },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "watch/:id", component: WatchComponent }, // :id is dynamic and will change based on how the route is requested by the code

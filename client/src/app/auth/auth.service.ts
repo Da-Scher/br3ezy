@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -14,12 +16,14 @@ export class AuthService {
     );
   }
 
-  isAdmin() {
+  isAdmin(): Observable<boolean> {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };
-    return this.http.get<{ success: boolean; data: { isAdmin: boolean } }>(
-      "https://localhost:8000/api/auth",
-      { headers },
-    );
+    return this.http
+      .get<{
+        success: boolean;
+        data: { isAdmin: boolean };
+      }>("https://localhost:8000/api/auth", { headers })
+      .pipe(map((response) => response.success && response.data.isAdmin));
   }
 }
