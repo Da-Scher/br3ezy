@@ -16,7 +16,7 @@ class User {
     const user = await this.findByUsername(username);
     const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) throw new Error("Invalid password");
-    return { userId: user.id };
+    return { user: { id: user.id, username: user.username, role: user.role } };
   }
 
   static async checkUser(username, email) {
@@ -28,10 +28,9 @@ class User {
   }
 
   static async findByUsername(username) {
-    const [rows] = await pool.query(
-      "SELECT * FROM Users WHERE username = ?",
-      [username],
-    );
+    const [rows] = await pool.query("SELECT * FROM Users WHERE username = ?", [
+      username,
+    ]);
     if (rows.length === 0) throw new Error("User not found");
     return rows[0];
   }

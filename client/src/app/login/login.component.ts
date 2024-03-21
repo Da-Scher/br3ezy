@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +16,8 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.user.username, this.user.password).subscribe({
-      next: (data) => {
-        localStorage.setItem('token', data.token);
+      next: (response) => {
+        localStorage.setItem('token', response.data.token);
         console.log('Login successful');
       },
       error: (error) => console.error('Login failed', error)

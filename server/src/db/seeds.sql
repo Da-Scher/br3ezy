@@ -1,8 +1,8 @@
 -- Insert users
-INSERT INTO Users (username, email, passwordHash) VALUES
-('admin', 'admin@example.com', '$2a$08$w7e2EGB4GvNNW0nA4trS1e0dn7NeCacGAgu1y2dFVEEou9sW5SkzC'),
-('testuser', 'user@example.com', '$2a$08$X8pvrFWa9ytAQRcsR/h7dO9BbhsJZtKFFHl12RSvGcc2wioLir2Ry'),
-('anotheruser', 'user2@example.com', '$2a$08$X8pvrFWa9ytAQRcsR/h7dO9BbhsJZtKFFHl12RSvGcc2wioLir2Ry');
+INSERT INTO Users (username, email, passwordHash, role) VALUES
+('admin', 'admin@example.com', '$2a$08$w7e2EGB4GvNNW0nA4trS1e0dn7NeCacGAgu1y2dFVEEou9sW5SkzC', 'admin'),
+('testuser', 'user@example.com', '$2a$08$X8pvrFWa9ytAQRcsR/h7dO9BbhsJZtKFFHl12RSvGcc2wioLir2Ry', 'user'),
+('anotheruser', 'user2@example.com', '$2a$08$X8pvrFWa9ytAQRcsR/h7dO9BbhsJZtKFFHl12RSvGcc2wioLir2Ry', 'user');
 
 -- Insert streams
 INSERT INTO Streams (userId, title, description, url, photo, isActive) VALUES

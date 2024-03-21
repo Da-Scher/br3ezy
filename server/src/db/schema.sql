@@ -9,7 +9,8 @@ CREATE TABLE Users (
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     passwordHash VARCHAR(255) NOT NULL,
-    registrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    registrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    role VARCHAR(50) NOT NULL DEFAULT 'user'
 );
 
 -- Create Streams table
