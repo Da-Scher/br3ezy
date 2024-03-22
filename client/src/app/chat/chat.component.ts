@@ -22,9 +22,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.socket = io('https://localhost:8000');
-
     this.socket.on('receiveMessage', (msg: any) => {
-      // this.messages.unshift(`<strong>UserID ${msg.userId}</strong>: ${msg.body}`);
       this.messages.unshift(`<strong>Username</strong>: ${msg.body}`);
     });
   }

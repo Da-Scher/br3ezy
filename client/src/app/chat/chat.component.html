@@ -1,11 +1,3 @@
-<!-- <div *ngFor="let msg of messages">
-    {{ msg }}
-  </div>
-  <input [(ngModel)]="message" (keydown.enter)="sendMessage()">
-  <button (click)="sendMessage()">Send</button>
-   -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,10 +12,6 @@
 <body>
     <div class="chat-box" id="chatBox">
 
-        <!-- <div class="chat-header">
-            <h2>Chat</h2>
-        </div> -->
-
         <div class="chat-messages" id="chatMessages">
             <div *ngFor="let msg of messages" class="message" [innerHTML]="msg">
             </div>
@@ -34,7 +22,7 @@
                 (keydown.enter)="sendMessage()">
             <button class="send-button" (click)="sendMessage()">Send</button>
         </div>
-        
+
     </div>
 </body>
 
