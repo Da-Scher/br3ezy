@@ -1,6 +1,8 @@
 const path = require("path");
 const ffmpeg = require("fluent-ffmpeg");
-
+const Stream = require("../models/stream");
+const { start } = require("repl");
+require("dotenv").config();
 // input link
 const inputLink = "srt://localhost:2000?mode=listener";
 
@@ -9,23 +11,36 @@ const outputPath = path.join(__dirname, "../../stream/streamout.m3u8");
 
 function startFfmpegStream() {
   ffmpeg(inputLink)
-    .outputOptions("-c:v", "copy")
-    .outputOptions("-c:a", "copy")
-    .outputOptions("-f", "hls")
-    .outputOptions("-hls_time", "2")
-    .outputOptions("-hls_list_size", "3")
-    .outputOptions("-hls_flags", "delete_segments+append_list")
-    .output(outputPath)
-    .on("start", () => {
-      console.log("starting");
+    .ffprobe((err, info) => {
+      if (err) {
+        console.error("ffprobe error:", err);
+        return;
+      }
+      // send information to federation.
+      console.log("updating federation.");
+      ffmpeg(inputLink)
+        .outputOptions("-c:v", "copy")
+        .outputOptions("-c:a", "copy")
+        .outputOptions("-f", "hls")
+        .outputOptions("-hls_time", "2")
+        .outputOptions("-hls_list_size", "3")
+        .outputOptions("-hls_flags", "delete_segments+append_list")
+        .output(outputPath)
+        .on("start", () => {
+          console.log("starting");
+        })
+        .on("end", () => {
+          console.log("finished");
+          // delete previous stream files. set live stream to live = 0
+          console.log("informing federation stream is over.");
+          startFfmpegStream();
+        })
+        .on("error", (err) => {
+          console.error("error:", err);
+        })
+        .run();
+    
     })
-    .on("end", () => {
-      console.log("finished");
-    })
-    .on("error", (err) => {
-      console.error("error:", err);
-    })
-    .run();
 }
 
 module.exports = { startFfmpegStream };
