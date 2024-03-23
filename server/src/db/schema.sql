@@ -36,3 +36,9 @@ CREATE TABLE Messages (
     FOREIGN KEY (userId) REFERENCES Users(id),
     FOREIGN KEY (streamId) REFERENCES Streams(id)
 );
+
+-- Create Federation Table
+CREATE TABLE Federation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fedeAPIUrl VARCHAR(255)
+);
