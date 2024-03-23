@@ -16,8 +16,16 @@ function startFfmpegStream() {
         console.error("ffprobe error:", err);
         return;
       }
-      // send information to federation.
-      console.log("updating federation.");
+      try {
+        // send information to federation.
+        console.log("updating federation.");
+      
+        // set the live stream to live = 1
+        Stream.startStream();
+
+      } catch (error) {
+        console.error("error updating federation:", error);
+      }
       ffmpeg(inputLink)
         .outputOptions("-c:v", "copy")
         .outputOptions("-c:a", "copy")
@@ -31,7 +39,13 @@ function startFfmpegStream() {
         })
         .on("end", () => {
           console.log("finished");
-          // delete previous stream files. set live stream to live = 0
+          // delete previous stream files. set live stream to live = 0 and listen for new connection.
+          try { 
+            Stream.endStream();
+
+          } catch (error) {
+            console.error("error updating stream database:", error);
+          }
           console.log("informing federation stream is over.");
           startFfmpegStream();
         })

@@ -25,6 +25,21 @@ class Stream {
     if (rows.length === 0) throw new Error(`No results found for ${keyword}`);
     return rows;
   }
+
+  static async startStream() {
+    // set the local stream (id = 1) to live = 1
+    const [result] = await pool.query("UPDATE Streams SET isActive = 1 WHERE id = 1");
+
+    return result;
+  }
+
+  static async endStream() {
+    // set the local stream (id = 1) to live = 0
+    const [result] = await pool.query("UPDATE Streams SET isActive = 0 WHERE id = 1");
+
+    return result;
+  }
+
 }
 
 module.exports = Stream;
