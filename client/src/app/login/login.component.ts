@@ -1,26 +1,33 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { AuthService } from "../auth/auth.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
+  selector: "app-login",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: "./login.component.html",
+  styleUrl: "./login.component.css",
 })
 export class LoginComponent {
-  user = { username: '', password: '' };
+  user = { username: "", password: "" };
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
   login() {
     this.authService.login(this.user.username, this.user.password).subscribe({
-      next: (data) => {
-        localStorage.setItem('token', data.token);
-        console.log('Login successful');
+      next: (response) => {
+        localStorage.setItem("token", response.data.token);
+        console.log("Login successful");
+        const returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
+        this.router.navigateByUrl(returnUrl);
       },
-      error: (error) => console.error('Login failed', error)
+      error: (error) => console.error("Login failed", error),
     });
   }
 }

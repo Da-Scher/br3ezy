@@ -19,9 +19,9 @@ exports.login = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const userId = await User.login(username, password);
-    const token = jwt.sign(userId, secretKey, { expiresIn: "1h" });
-    res.sendSuccess(200, { token: token });
+    const user = await User.login(username, password);
+    const token = jwt.sign(user, secretKey, { expiresIn: "1h" });
+    res.sendSuccess(200, { token });
   } catch (error) {
     res.sendError(500, error);
   }

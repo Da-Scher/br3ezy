@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -12,7 +13,10 @@ import { FormsModule } from "@angular/forms";
 export class RegisterComponent {
   user = { username: "", email: "", password: "" };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   register() {
     this.http
@@ -20,7 +24,10 @@ export class RegisterComponent {
         responseType: "text",
       })
       .subscribe({
-        next: (response) => console.log(response),
+        next: (response) => {
+          console.log(response);
+          this.router.navigate(["/login"]);
+        },
         error: (error) => console.error(error),
       });
   }
