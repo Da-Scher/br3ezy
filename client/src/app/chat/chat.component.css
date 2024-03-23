@@ -1,0 +1,51 @@
+/* Styling for chat box */
+.chat-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 600px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflow to prevent scrollbars on the chat box */
+    position: relative; /* Position relative for absolute positioning of chat-messages */
+  }
+  
+  .chat-messages {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    overflow: auto; 
+    height: calc(100% - 60px); 
+    scroll-behavior: smooth;
+  }
+  
+  /* Styling for individual message */
+  .message {
+    margin-bottom: 5px; /* Adjust margin between messages */
+  }
+  
+  /* Styling for send bar */
+  .send-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+  }
+  
+  .message-input {
+    width: calc(100% - 70px); /* Adjust width to accommodate send button */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .send-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  

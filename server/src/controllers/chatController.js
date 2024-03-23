@@ -13,7 +13,6 @@ exports.fetchChatHistory = async (req, res) => {
 
 exports.addMessage = async (req, res) => {
   const { userId, streamId, message } = req.body;
-
   try {
     const messageId = await Chat.saveMessage(userId, streamId, message);
     res.sendSuccess(201, messageId);

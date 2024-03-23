@@ -5,11 +5,13 @@ import { StreamListing } from '../streamlisting';
 import { ListingService } from '../listing.service';
 import { VideoplayerComponent } from '../videoplayer/videoplayer.component';
 import { StreamListingComponent } from '../stream-listing/stream-listing.component';
+import { ChatComponent } from '../chat/chat.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-watch',
   standalone: true,
-  imports: [RouterLink, VideoplayerComponent, StreamListingComponent],
+  imports: [CommonModule, RouterLink, FormsModule, VideoplayerComponent, StreamListingComponent, ChatComponent],
   templateUrl: './watch.component.html',
   styleUrl: './watch.component.css'
 })
