@@ -1,5 +1,23 @@
-h1 { font-weight: normal; }
+h1 {
+  font-weight: normal;
+}
 
-.brand-logo {  
-    width: 30%;
+.brand-logo {
+  width: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.login-btn {
+  padding: 10px;
+  border: solid 1px #05781e;
+  background: #05781e;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
 }

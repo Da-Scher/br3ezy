@@ -1,15 +1,28 @@
 <!-- App Component HTML -->
 <main>
-
+  <div class="header">
     <a [routerLink]="['/']">
-        <header class="brand-name">
-            <img class="brand-logo" src="../assets/br3ezy_logo_banner.png" alt="br3ezy logo" aria-hidden="true">
-        </header>
+      <header class="brand-name">
+        <img
+          class="brand-logo"
+          src="../assets/br3ezy_logo_banner.png"
+          alt="br3ezy logo"
+          aria-hidden="true"
+        />
+      </header>
     </a>
-
-    <!-- Webpage Routes -->
-    <section class="content">
-        <router-outlet></router-outlet>
-    </section>
-
+    <div *ngIf="isLoggedIn(); else showLogin">
+      <h3>Welcome, {{ user.username }}</h3>
+      <button class="login-btn" (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+      <a routerLink="/login" role="button" class="login-btn"
+        >Login / Register</a
+      >
+    </ng-template>
+  </div>
+  <!-- Webpage Routes -->
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
 </main>
