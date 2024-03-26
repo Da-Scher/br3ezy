@@ -6,7 +6,7 @@ INSERT INTO Users (username, email, passwordHash, role) VALUES
 
 -- Insert streams
 INSERT INTO Streams (userId, title, description, url, photo, isActive) VALUES
-(1, 'Server Host Stream', 'This is the server host stream. It has the streamout.m3u8 url, so the server host can stream their zany antics to the masses.', 'https://localhost:8000/stream/streamout.m3u8', 'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', TRUE),
+(1, 'Server Host Stream', 'This is the server host stream. It has the streamout.m3u8 url, so the server host can stream their zany antics to the masses.', 'https://localhost:8000/stream/streamout.m3u8', 'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', FALSE);
 
 -- Insert messages
 INSERT INTO Messages (userId, streamId, body) VALUES
@@ -14,5 +14,5 @@ INSERT INTO Messages (userId, streamId, body) VALUES
 (2, 1, 'This is a test message.');
 
 -- Insert federation
-INSERT INTO Federation (fedeAPIUrl) VALUES
-('https://localhost:8001/api/federation');
+INSERT INTO Federation (fedPublicId, apiUrl, apiPort) VALUES
+(2, 'localhost', 8001);

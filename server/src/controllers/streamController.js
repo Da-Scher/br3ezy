@@ -1,4 +1,5 @@
 const Stream = require("../models/stream");
+const Federation = require("../models/federation");
 // TODO: start ffmpeg with addStream
 // const { startFfmpegStream } = require("../services/streamService");
 
@@ -35,6 +36,16 @@ exports.searchStreams = async (req, res) => {
   try {
     const streams = await Stream.searchStreams(keyword);
     res.sendSuccess(200, streams);
+  } catch (error) {
+    res.sendError(500, error);
+  }
+};
+
+exports.updateFederationStream = async (req, res) => {
+  const { fedID } = req.query;
+  try {
+    const federation = await Federation.setLiveFederation(fedID);
+    res.sendSuccess(200, federation);
   } catch (error) {
     res.sendError(500, error);
   }

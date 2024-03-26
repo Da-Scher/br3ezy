@@ -1,5 +1,6 @@
 -- Clean database
 DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Federation;
 DROP TABLE IF EXISTS Streams;
 DROP TABLE IF EXISTS Users;
 
@@ -40,5 +41,7 @@ CREATE TABLE Messages (
 -- Create Federation Table
 CREATE TABLE Federation (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fedeAPIUrl VARCHAR(255)
+    fedPublicId INT,
+    apiUrl VARCHAR(255),
+    apiPort INT
 );

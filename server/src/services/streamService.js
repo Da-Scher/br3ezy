@@ -1,6 +1,8 @@
 const path = require("path");
 const ffmpeg = require("fluent-ffmpeg");
 const Stream = require("../models/stream");
+const Federation = require("../models/federation");
+const { sendAllRequests } = require("../federation/requestUpdate");
 const { start } = require("repl");
 require("dotenv").config();
 // input link
@@ -9,22 +11,30 @@ const inputLink = "srt://localhost:2000?mode=listener";
 // output path
 const outputPath = path.join(__dirname, "../../stream/streamout.m3u8");
 
-function startFfmpegStream() {
+async function startFfmpegStream() {
+  const federation = await Federation.getFederation();
   ffmpeg(inputLink)
     .ffprobe((err, info) => {
       if (err) {
         console.error("ffprobe error:", err);
         return;
       }
-      try {
-        // send information to federation.
-        console.log("updating federation.");
-      
-        // set the live stream to live = 1
-        Stream.startStream();
+      else if (info) {
+        try {
+          // send information to federation.
+          console.log("updating federation.");
+        
+          // set the live stream to live = 1
+          Stream.startStream();
 
-      } catch (error) {
-        console.error("error updating federation:", error);
+          console.log(`federation: ${federation}`);
+
+          // send signal to federation that the server is live.
+          sendAllRequests(federation);
+
+        } catch (error) {
+          console.error("error updating federation:", error);
+        }
       }
       ffmpeg(inputLink)
         .outputOptions("-c:v", "copy")
