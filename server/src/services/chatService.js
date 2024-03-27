@@ -11,7 +11,7 @@ module.exports = (io) => {
     socket.on("newMessage", async (msg) => {
       console.log("New message:", msg);
       try {
-        await Chat.saveMessage(msg);
+        await Chat.saveMessage(msg.userId, msg.streamId, msg.body);
         io.emit("receiveMessage", msg);
       } catch (error) {
         console.error("Error saving message:", error);

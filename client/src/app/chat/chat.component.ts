@@ -30,7 +30,7 @@ export class ChatComponent implements OnInit {
     this.socket = io("https://localhost:8000");
     this.socket.on("receiveMessage", (msg: any) => {
       this.messages.unshift(
-        `<strong>${this.user.username}</strong>: ${msg.body}`,
+        `<strong>${msg.username}</strong>: ${msg.body}`,
       );
     });
 
@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     const payload = {
       userId: this.user.id,
+      username: this.user.username,
       streamId: this.streamID,
       body: this.message,
     };
