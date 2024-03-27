@@ -1,25 +1,27 @@
 import { CanActivateFn } from "@angular/router";
 import { Router } from "@angular/router";
 import { inject } from "@angular/core";
-import { jwtDecode } from "jwt-decode";
+import { AuthService } from "./auth.service";
+import { map } from "rxjs/operators";
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
+  const authService = inject(AuthService);
   const token = localStorage.getItem("token");
 
-  if (!token) {
+  if (!authService.isLoggedIn()) {
     router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
     return false;
   }
 
-  const decoded: any = jwtDecode(token);
-  const expiration = decoded.exp * 1000;
-  const current = new Date().getTime();
-
-  if (current >= expiration) {
-    router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
-    return false;
-  }
-
-  return true;
+  return authService.authorize(token).pipe(
+    map((response) => {
+      if (response.success && response.data.authorized) {
+        return true;
+      } else {
+        router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
+        return false;
+      }
+    }),
+  );
 };

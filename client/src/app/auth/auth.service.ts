@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
 import { jwtDecode } from "jwt-decode";
 import { Router } from "@angular/router";
 
@@ -31,15 +29,19 @@ export class AuthService {
     );
   }
 
-  isAdmin(): Observable<boolean> {
-    const token = localStorage.getItem("token");
+  register(username: string, email: string, password: string) {
+    return this.http.post<{ success: boolean; data: { userId: string } }>(
+      "https://localhost:8000/api/auth/register",
+      { username, email, password },
+    );
+  }
+
+  authorize(token: any) {
     const headers = { Authorization: `Bearer ${token}` };
-    return this.http
-      .get<{
-        success: boolean;
-        data: { isAdmin: boolean };
-      }>("https://localhost:8000/api/auth", { headers })
-      .pipe(map((response) => response.success && response.data.isAdmin));
+    return this.http.get<{
+      success: boolean;
+      data: { authorized: boolean };
+    }>("https://localhost:8000/api/auth", { headers });
   }
 
   isLoggedIn(): boolean {
@@ -54,13 +56,18 @@ export class AuthService {
     return !isExpired;
   }
 
+  isAdmin(token: any): boolean {
+    const user = this.getUser(token);
+    if (user.role === "admin") return true;
+    return false;
+  }
+
   logout() {
     localStorage.removeItem("token");
     this.router.navigate(["/"]);
   }
 
-  getUser(): any {
-    const token = localStorage.getItem("token");
+  getUser(token: any): any {
     if (!token) return null;
     const decoded = jwtDecode<JwtPayload>(token);
     const user = decoded.user;

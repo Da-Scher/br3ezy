@@ -31,6 +31,7 @@ export class AppComponent {
   }
 
   get user() {
-    return this.authService.getUser();
+    const token = localStorage.getItem("token");
+    return this.authService.getUser(token);
   }
 }

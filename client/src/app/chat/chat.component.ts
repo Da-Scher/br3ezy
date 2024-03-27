@@ -34,8 +34,9 @@ export class ChatComponent implements OnInit {
       );
     });
 
+    const token = localStorage.getItem("token");
     if (this.authService.isLoggedIn()) {
-      this.user = this.authService.getUser();
+      this.user = this.authService.getUser(token);
     }
   }
 
