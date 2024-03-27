@@ -1,4 +1,3 @@
-require("dotenv").config();
 const https = require("https");
 const { Server } = require("socket.io");
 const app = require("./app");
