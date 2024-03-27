@@ -42,9 +42,8 @@ exports.searchStreams = async (req, res) => {
 };
 
 exports.updateFederationStream = async (req, res) => {
-  const { fedID } = req.query;
   try {
-    const federation = await Federation.setLiveFederation(fedID);
+    const federation = await Federation.setLiveFederation(req);
     res.sendSuccess(200, federation);
   } catch (error) {
     res.sendError(500, error);

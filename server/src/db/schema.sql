@@ -43,5 +43,7 @@ CREATE TABLE Federation (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fedPublicId INT,
     apiUrl VARCHAR(255),
-    apiPort INT
+    apiPort INT,
+    streamId INT,
+    FOREIGN KEY (streamId) REFERENCES Streams(id)
 );

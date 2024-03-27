@@ -4,4 +4,6 @@ const streamController = require("../controllers/streamController");
 
 // we've recieved a request to update the federation.
 // TODO: crypto fedID
-router.post("/fedeIn/:fedID", streamController.updateFederationStream);
+router.post("/fedeIn/", streamController.updateFederationStream);
+
+module.exports = router;

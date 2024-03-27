@@ -15,4 +15,4 @@ INSERT INTO Messages (userId, streamId, body) VALUES
 
 -- Insert federation
 INSERT INTO Federation (fedPublicId, apiUrl, apiPort) VALUES
-(2, 'localhost', 8001);
+(2, '10.0.0.198', 8000, 2);
