@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-require("dotenv").config();
 const secretKey = process.env.SECRET_KEY;
 
 exports.register = async (req, res) => {
@@ -25,4 +24,8 @@ exports.login = async (req, res) => {
   } catch (error) {
     res.sendError(500, error);
   }
+};
+
+exports.authorize = (req, res) => {
+  res.sendSuccess(200, { authorized: true });
 };

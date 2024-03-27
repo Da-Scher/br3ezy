@@ -1,29 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Box</title>
-    <link rel="stylesheet" href="chat.component.css">
-</head>
+    <link rel="stylesheet" href="chat.component.css" />
+  </head>
 
+  <body>
+    <div *ngIf="user; else loginPrompt" class="chat-box" id="chatBox">
+      <div class="chat-messages" id="chatMessages">
+        <div
+          *ngFor="let msg of messages"
+          class="message"
+          [innerHTML]="msg"
+        ></div>
+      </div>
 
-<body>
-    <div class="chat-box" id="chatBox">
-
-        <div class="chat-messages" id="chatMessages">
-            <div *ngFor="let msg of messages" class="message" [innerHTML]="msg">
-            </div>
-        </div>
-
-        <div class="send-bar">
-            <input type="text" class="message-input" placeholder="Type your message..." [(ngModel)]="message"
-                (keydown.enter)="sendMessage()">
-            <button class="send-button" (click)="sendMessage()">Send</button>
-        </div>
-
+      <div class="send-bar">
+        <input
+          type="text"
+          class="message-input"
+          placeholder="Type your message..."
+          [(ngModel)]="message"
+          (keydown.enter)="sendMessage()"
+        />
+        <button class="send-button" (click)="sendMessage()">Send</button>
+      </div>
     </div>
-</body>
-
+    <ng-template #loginPrompt>
+      <div>
+        <p>You must be logged in to participate in the chat.</p>
+        <a [routerLink]="['/login']" [queryParams]="{ returnUrl: parentRoute }"
+          >Login</a
+        >
+      </div>
+    </ng-template>
+  </body>
 </html>

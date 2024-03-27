@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config();
 const secretKey = process.env.SECRET_KEY;
 
 exports.authHandler = (req, res, next) => {
@@ -27,7 +26,7 @@ exports.authHandler = (req, res, next) => {
 exports.adminHandler = (req, res, next) => {
   if (req.user.role !== "admin") {
     const error = new Error("Access denied: Must be an administrator");
-    return res.sendError(403, error);
+    res.sendError(403, error);
   }
-  res.sendSuccess(200, { isAdmin: true });
+  next();
 };
