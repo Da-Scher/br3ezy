@@ -14,5 +14,5 @@ INSERT INTO Messages (userId, streamId, body) VALUES
 (2, 1, 'This is a test message.');
 
 -- Sample federation member
---INSERT INTO Federation (fedPublicId, apiUrl, apiPort) VALUES
---(2, '10.0.0.198', 8000, 2);
+-- INSERT INTO Federation (fedPublicId, apiUrl, apiPort) VALUES
+-- (2, '10.0.0.198', 8000, 2);
