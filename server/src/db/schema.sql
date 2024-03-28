@@ -1,5 +1,6 @@
 -- Clean database
 DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Federation;
 DROP TABLE IF EXISTS Streams;
 DROP TABLE IF EXISTS Users;
 
@@ -34,5 +35,15 @@ CREATE TABLE Messages (
     body TEXT,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES Users(id),
+    FOREIGN KEY (streamId) REFERENCES Streams(id)
+);
+
+-- Create Federation Table
+CREATE TABLE Federation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fedPublicId INT,
+    apiUrl VARCHAR(255),
+    apiPort INT,
+    streamId INT,
     FOREIGN KEY (streamId) REFERENCES Streams(id)
 );
