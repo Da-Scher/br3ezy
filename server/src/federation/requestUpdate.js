@@ -1,7 +1,4 @@
 const https = require('https');
-const mysql = require('mysql2');
-const JSON = require('circular-json');
-require('dotenv').config();
 
 async function requestUpdate(fedPublicId, apiUrl, apiPort) {
     const postData = JSON.stringify({

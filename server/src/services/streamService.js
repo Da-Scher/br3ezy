@@ -4,7 +4,6 @@ const Stream = require("../models/stream");
 const Federation = require("../models/federation");
 const { sendAllRequests } = require("../federation/requestUpdate");
 const { start } = require("repl");
-require("dotenv").config();
 // input link
 const inputLink = "srt://localhost:2000?mode=listener";
 
