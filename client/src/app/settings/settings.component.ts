@@ -27,8 +27,5 @@ export class SettingsComponent {
     return this.authService.isAdmin(this.token);
   }
 
-  onForm1Submit(form: NgForm) {
-    const inputValue = form.value.input1;
-    console.log('Form 1 submitted with input value:', inputValue);
-  }
+
 }
