@@ -19,15 +19,15 @@ async function startFfmpegStream() {
         return;
       }
       else if (info) {
+        // set the live stream to live = 1
+        Stream.startStream();
         if(federationList !== null) {
           try {
             // send information to federation.
-            console.log("updating federation.");
+            //console.log("updating federation.");
           
-            // set the live stream to live = 1
-            Stream.startStream();
 
-            console.log(`federation: ${federationList}`);
+            //console.log(`federation: ${federationList}`);
 
             // send signal to federation that the server is live.
             sendAllRequests(federationList);
