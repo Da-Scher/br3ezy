@@ -25,7 +25,6 @@ async function startFfmpegStream() {
           try {
             // send information to federation.
             //console.log("updating federation.");
-          
 
             //console.log(`federation: ${federationList}`);
 

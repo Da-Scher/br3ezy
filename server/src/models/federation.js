@@ -4,7 +4,7 @@ class Federation {
     static async getFederation() {
       try {
         const [results] = await pool.query(
-            "SELECT fedPublicId, apiUrl, apiPort FROM Federation",
+            "SELECT Federation.fedPublicId, Federation.apiUrl, Federation.apiPort, Streams.title, Streams.description, Streams.photo FROM Federation JOIN Streams ",
         );
         return results;
       } 

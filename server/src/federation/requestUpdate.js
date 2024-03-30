@@ -5,7 +5,7 @@ async function requestUpdate(payload) {
         fedID: payload.fedPublicId,
         stmName: payload.name,
         stmDesc: payload.description,
-        stmPict: payload.picture,
+        stmPict: payload.photo,
     });
     const req = https.request({
         hostname: apiUrl,
@@ -29,7 +29,7 @@ async function requestUpdate(payload) {
 }   
 
 async function sendAllRequests(dataList) {
-    dataList.forEach((payload) => {
+    dataList.forEach(async (payload) => {
       try {
           await requestUpdate(payload);
       } catch (error) {
