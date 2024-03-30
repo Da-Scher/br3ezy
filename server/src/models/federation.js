@@ -2,10 +2,16 @@ const pool = require("../db/db");
 
 class Federation {
     static async getFederation() {
+      try {
         const [results] = await pool.query(
             "SELECT fedPublicId, apiUrl, apiPort FROM Federation",
         );
         return results;
+      } 
+      catch(error) {
+      console.error(`Error getting federation: ${error}`);
+      return null;
+      }
     }
 
     static async setLiveFederation(req) {

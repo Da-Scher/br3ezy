@@ -11,7 +11,7 @@ const inputLink = "srt://localhost:2000?mode=listener";
 const outputPath = path.join(__dirname, "../../stream/streamout.m3u8");
 
 async function startFfmpegStream() {
-  const federation = await Federation.getFederation();
+  const federationList = await Federation.getFederation();
   ffmpeg(inputLink)
     .ffprobe((err, info) => {
       if (err) {
@@ -19,20 +19,22 @@ async function startFfmpegStream() {
         return;
       }
       else if (info) {
-        try {
-          // send information to federation.
-          console.log("updating federation.");
-        
-          // set the live stream to live = 1
-          Stream.startStream();
+        if(federationList !== null) {
+          try {
+            // send information to federation.
+            console.log("updating federation.");
+          
+            // set the live stream to live = 1
+            Stream.startStream();
 
-          console.log(`federation: ${federation}`);
+            console.log(`federation: ${federationList}`);
 
-          // send signal to federation that the server is live.
-          sendAllRequests(federation);
+            // send signal to federation that the server is live.
+            sendAllRequests(federationList);
 
-        } catch (error) {
-          console.error("error updating federation:", error);
+          } catch (error) {
+            console.error("error updating federation:", error);
+          }
         }
       }
       ffmpeg(inputLink)
@@ -49,11 +51,13 @@ async function startFfmpegStream() {
         .on("end", () => {
           console.log("finished");
           // delete previous stream files. set live stream to live = 0 and listen for new connection.
-          try { 
-            Stream.endStream();
+          if(federationList !== null) {
+            try { 
+              Stream.endStream();
 
-          } catch (error) {
-            console.error("error updating stream database:", error);
+            } catch (error) {
+              console.error("error updating stream database:", error);
+            }
           }
           console.log("informing federation stream is over.");
           startFfmpegStream();
