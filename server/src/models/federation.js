@@ -15,10 +15,10 @@ class Federation {
     }
 
     static async setLiveFederation(req) {
-        const { fedID } = req.body;
+        const { fedID, stmName, stmDesc, stmPict } = req.body;
         const [results] = await pool.query(
-            "UPDATE Streams SET isActive = 1 WHERE id = ?",
-            [fedID],
+            "UPDATE Streams SET title = ?, description = ?, photo = ?, isActive = 1 WHERE id = ?",
+            [stmName, stmDesc, stmPict, fedID],
         );
         return results;
     }
