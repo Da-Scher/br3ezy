@@ -1,11 +1,12 @@
 const https = require('https');
 
 async function requestUpdate(payload) {
+    const {fedPublicId, apiUrl, apiPort, title, description, photo} = payload 
     const postData = JSON.stringify({
-        fedID: payload.fedPublicId,
-        stmName: payload.name,
-        stmDesc: payload.description,
-        stmPict: payload.photo,
+        fedID: fedPublicId,
+        stmName: title,
+        stmDesc: description,
+        stmPict: photo,
     });
     const req = https.request({
         hostname: apiUrl,
