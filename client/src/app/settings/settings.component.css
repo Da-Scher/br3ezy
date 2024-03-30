@@ -1,0 +1,7 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Optional: Set background color */
+    padding: 20px; /* Optional: Add padding for content inside the card */
+    margin-bottom: 20px; /* Add margin to create space between cards */
+  }

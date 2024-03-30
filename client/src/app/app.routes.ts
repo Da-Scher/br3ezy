@@ -6,7 +6,7 @@ import { GalleryComponent } from "./gallery/gallery.component";
 import { AdminComponent } from "./admin/admin.component";
 import { adminGuard } from "./admin/admin.guard";
 import { authGuard } from "./auth/auth.guard";
-
+import { SettingsComponent } from "./settings/settings.component";
 export const routes: Routes = [
   {
     path: "admin",
@@ -17,4 +17,5 @@ export const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "watch/:id", component: WatchComponent }, // :id is dynamic and will change based on how the route is requested by the code
   { path: "", component: GalleryComponent }, // I want to go home now
+  { path: "settings", component: SettingsComponent }
 ];

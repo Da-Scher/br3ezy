@@ -1,0 +1,22 @@
+<div class="card" *ngIf="isAdmin(); else showAdminErr">
+    <h1> Administrative Settings: </h1>
+    <h2>Congrats, {{ user.username }}!<br>
+        If you're reading this, you have access to admin settings!
+    </h2>
+</div>
+
+<ng-template #showAdminErr>
+    <div class="card">
+        <h1> Administrative Settings: </h1>
+        <h2>Sorry, {{ user.username }}. You're not an admin.</h2>
+    </div>
+</ng-template>
+
+
+<div class="card">
+    <h1>{{ user.username }}'s Settings:</h1>
+    Your user settings will appear here.<br>
+    Your user name is: {{ user.username }}<br>
+    Your user id is: {{ user.id }}<br>
+    Your user role is: {{ user.role }}<br>
+</div>

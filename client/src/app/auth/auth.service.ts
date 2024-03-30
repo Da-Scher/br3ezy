@@ -1,13 +1,26 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { jwtDecode } from "jwt-decode";
+import { Router } from "@angular/router";
+
+interface JwtPayload {
+  user: {
+    id: number;
+    username: string;
+    role: string;
+  };
+  iat: number;
+  exp: number;
+}
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   login(username: string, password: string) {
     return this.http.post<{ success: boolean; data: { token: string } }>(
@@ -16,14 +29,49 @@ export class AuthService {
     );
   }
 
-  isAdmin(): Observable<boolean> {
-    const token = localStorage.getItem("token");
+  register(username: string, email: string, password: string) {
+    return this.http.post<{ success: boolean; data: { userId: string } }>(
+      "https://localhost:8000/api/auth/register",
+      { username, email, password },
+    );
+  }
+
+  authorize(token: any) {
     const headers = { Authorization: `Bearer ${token}` };
-    return this.http
-      .get<{
-        success: boolean;
-        data: { isAdmin: boolean };
-      }>("https://localhost:8000/api/auth", { headers })
-      .pipe(map((response) => response.success && response.data.isAdmin));
+    return this.http.get<{
+      success: boolean;
+      data: { authorized: boolean };
+    }>("https://localhost:8000/api/auth", { headers });
+  }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem("token");
+    if (!token) return false;
+
+    const decoded: any = jwtDecode(token);
+    const expiration = decoded.exp * 1000;
+    const current = new Date().getTime();
+    const isExpired = expiration < current;
+
+    return !isExpired;
+  }
+
+  isAdmin(token: any): boolean {
+    const user = this.getUser(token);
+    console.log(user)
+    if (user.role === "admin") return true;
+    return false;
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+    this.router.navigate(["/"]);
+  }
+
+  getUser(token: any): any {
+    if (!token) return null;
+    const decoded = jwtDecode<JwtPayload>(token);
+    const user = decoded.user;
+    return user;
   }
 }
