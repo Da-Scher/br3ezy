@@ -1,8 +1,12 @@
 const https = require('https');
 
-async function requestUpdate(fedPublicId, apiUrl, apiPort) {
+async function requestUpdate(payload) {
+    const {fedPublicId, apiUrl, apiPort, title, description, photo} = payload 
     const postData = JSON.stringify({
         fedID: fedPublicId,
+        stmName: title,
+        stmDesc: description,
+        stmPict: photo,
     });
     const req = https.request({
         hostname: apiUrl,
@@ -25,14 +29,14 @@ async function requestUpdate(fedPublicId, apiUrl, apiPort) {
     req.end();
 }   
 
-async function sendAllRequests(federation) {
-    for (let i = 0; i < federation.length; i++) {
-        try {
-            await requestUpdate(federation[i].fedPublicId, federation[i].apiUrl, federation[i].apiPort);
-        } catch (error) {
-            console.error(`Error sending requests: ${error}`);
-        }
-    }
+async function sendAllRequests(dataList) {
+    dataList.forEach(async (payload) => {
+      try {
+          await requestUpdate(payload);
+      } catch (error) {
+          console.error(`Error sending requests: ${error}`);
+      }
+    });
 }
 
 exports.sendAllRequests = sendAllRequests;
