@@ -11,6 +11,13 @@
         />
       </header>
     </a>
+
+    <!-- search bar -->
+    <div>
+      <app-search-bar (search)="onSearch($event)"></app-search-bar>
+    </div>
+
+
     <div *ngIf="isLoggedIn(); else showLogin">
       <h3>Welcome, {{ user.username }}</h3>
       <button class="login-btn" (click)="logout()">Logout</button>

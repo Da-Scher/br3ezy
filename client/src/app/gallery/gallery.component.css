@@ -9,13 +9,13 @@
     display: grid;
     column-gap: 14px;
     row-gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     margin-top: 50px;
     justify-content: space-around;
   }
   
   input[type="text"] {
-    border: solid 1px #05781e;
+    border: solid 1px #056B38;
     padding: 10px;
     border-radius: 8px;
     margin-right: 4px;
@@ -26,7 +26,7 @@
   button {
     padding: 10px;
     border: solid 1px var(--primary-color);
-    background: #05781e;
+    background: #056B38;
     color: white;
     border-radius: 8px;
   }

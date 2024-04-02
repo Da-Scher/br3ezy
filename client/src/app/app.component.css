@@ -11,6 +11,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  background-color: #014F4F;
 }
 
 .login-btn {
@@ -20,4 +21,8 @@ h1 {
   color: white;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.content{
+  background-color: #1A1C1C;
 }
