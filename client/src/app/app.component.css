@@ -1,9 +1,9 @@
-h1 {
+/* h1 {
   font-weight: normal;
 }
 
 .brand-logo {
-  width: 50%;
+  width: 10%;
 }
 
 .header {
@@ -11,7 +11,8 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: #014F4F;
+  background-color: #1E7D34; 
+
 }
 
 .login-btn {
@@ -24,5 +25,42 @@ h1 {
 }
 
 .content{
-  background-color: #1A1C1C;
+  background-color: #1E1E1E;
+} */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.banner img {
+  width: 150px;
+}
+
+.search-bar {
+  display: inline-block;
+  flex-grow: 1; /* Take up remaining space */
+  margin: 0 auto; /* Center horizontally */
+  max-width: 400px; /* Optional: Limit maximum width */
+}
+
+.login-settings {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #777;
 }
