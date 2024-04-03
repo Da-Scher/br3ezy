@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #000000;
+  }
 
 /* Dark Theme Styles */
 .dark-theme {
@@ -9,4 +17,13 @@
     body{margin:0}
     html, body { height: 100%; }
     body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+      }
   }

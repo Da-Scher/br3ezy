@@ -8,7 +8,7 @@ import { AuthService } from "./auth/auth.service";
 import { NgIf } from "@angular/common";
 import { SearchBarComponent } from "./search-bar/search-bar.component";
 import { ThemeToggleComponent } from "./theme-toggle/theme-toggle.component";
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: "app-root",
