@@ -17,7 +17,7 @@
     float: left;
     width: 20%;
     padding: 10px;
-    background: #2196F3;
+    background: rgb(64,147,7);
     color: white;
     font-size: 17px;
     border: 1px solid grey;
@@ -61,9 +61,9 @@
   }
   
   /* Optional: Add hover effect */
-  .search-button:hover {
+  /* .search-button:hover {
     background-color: #045e32;
-  } */ */
+  } */ 
 
   
 

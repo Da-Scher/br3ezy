@@ -1,7 +1,9 @@
 /* code inspired by https://angular.io/tutorial/first-app/first-app-lesson-02 */
 
+
+/* other colors: 26323D dark blackish*/
 :root{
-    --primary-color: #05781e;
+    --primary-color: #252526;
 }
 
 
@@ -12,6 +14,8 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     margin-top: 50px;
     justify-content: space-around;
+    /* box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); Gold color with 50% opacity */
+
   }
   
   input[type="text"] {

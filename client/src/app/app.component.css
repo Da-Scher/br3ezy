@@ -23,16 +23,15 @@
   border-radius: 8px;
   text-decoration: none;
 }
+*/
 
-.content{
-  background-color: #1E1E1E;
-} */
+
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #333;
+  background-color: #252526;
   color: #fff;
 }
 

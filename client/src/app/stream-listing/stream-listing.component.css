@@ -1,19 +1,24 @@
 /* this code inspired by https://angular.io/tutorial/first-app/first-app-lesson-03 */
 
 .listing {
-    background: #69d27f;
+    background: #252526;
     border-radius: 30px;
     padding-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5); /* Gold color with 50% opacity */
+    /* box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); Gold color with 50% opacity */
+
+
+    /* 409407 green */
   }
   .listing-heading {
     /* Normal link style */
     a {
-      color: rgb(7, 95, 30);
+      color: #fff;
       text-decoration: none; /* Remove underline if desired */
     }
 
     
-    color: #05781e;
+    color: #fff;
     padding: 10px 20px 0 20px;
   }
   .listing-photo {
