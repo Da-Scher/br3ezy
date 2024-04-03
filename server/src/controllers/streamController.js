@@ -49,3 +49,15 @@ exports.updateFederationStream = async (req, res) => {
     res.sendError(500, error);
   }
 };
+
+exports.updateStream = async (req, res) => {
+  const { id } = req.params;
+  const { title, description, photo } = req.body;
+
+  try {
+    const update = await Stream.updateStream(id, title, description, photo);
+    res.sendSuccess(200, { update });
+  } catch (error) {
+    res.sendError(500, error);
+  }
+};
