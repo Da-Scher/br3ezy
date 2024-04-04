@@ -1,7 +1,48 @@
 .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff; /* Optional: Set background color */
-    padding: 20px; /* Optional: Add padding for content inside the card */
-    margin-bottom: 20px; /* Add margin to create space between cards */
+  width: 475px; /* Set width to 400px */
+  margin: 0 auto; /* Center the card horizontally */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Optional: Set background color */
+  padding: 20px; /* Optional: Add padding for content inside the card */
+  margin-bottom: 20px; /* Add margin to create space between cards */
+}
+
+
+  .streamPhoto {
+    width: 200px; /* Set maximum width */
+    height: 200px; /* Set height same as width for a square shape */
+    border-radius: 20px; /* Adjust this value to control the roundness */
+    overflow: hidden; /* Ensure the image stays within the rounded border */
+    border: 2px solid #ccc; /* Add a border */
   }
+
+  .streamPhoto img {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
+    object-fit: cover; /* Scale the image to cover the entire container */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .image-card {
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+
+  .update-success{
+    text-align: center;
+    color: #28a745; /* Green */
+    font-weight: bold;
+  }
+
+  .update-failure{
+    text-align: center;
+    color: #dc3545; /* Red */
+    font-weight: bold;
+  }
+  
+ 
+  
