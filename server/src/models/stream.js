@@ -13,7 +13,8 @@ class Stream {
     const [rows] = await pool.query("SELECT * FROM Streams WHERE id = ?", [
       streamId,
     ]);
-    if (rows.length === 0) throw new Error(`Stream not found with ID: ${streamId}`);
+    if (rows.length === 0)
+      throw new Error(`Stream not found with ID: ${streamId}`);
     return rows[0];
   }
 
@@ -28,18 +29,34 @@ class Stream {
 
   static async startStream() {
     // set the local stream (id = 1) to live = 1
-    const [result] = await pool.query("UPDATE Streams SET isActive = 1 WHERE id = 1");
+    const [result] = await pool.query(
+      "UPDATE Streams SET isActive = 1 WHERE id = 1",
+    );
 
     return result;
   }
 
   static async endStream() {
     // set the local stream (id = 1) to live = 0
-    const [result] = await pool.query("UPDATE Streams SET isActive = 0 WHERE id = 1");
+    const [result] = await pool.query(
+      "UPDATE Streams SET isActive = 0 WHERE id = 1",
+    );
 
     return result;
   }
 
+  static async updateStream(id, title, description, photo) {
+    const [results] = await pool.query(
+      "UPDATE Streams SET title = ?, description = ?, photo = ? WHERE id = ?",
+      [title, description, photo, id],
+    );
+
+    if (results.affectedRows === 0) {
+      throw new Error("No stream found with the specified ID.");
+    }
+
+    return results;
+  }
 }
 
 module.exports = Stream;
