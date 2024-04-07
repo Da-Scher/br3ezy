@@ -1,9 +1,43 @@
+<!-- divs, as far as the eye can see -->
 <div class="card" *ngIf="isAdmin(); else showAdminErr">
-    <h1> Administrative Settings: </h1>
-    <h2>Congrats, {{ user.username }}!<br>
-        If you're reading this, you have access to admin settings!
-    </h2>
+
+    <h1> Host Stream Settings: </h1>
+    <div class="container">
+
+        <div class="image-card">
+            <div class="streamPhoto">
+                <img [src]="streamListing?.photo" alt="Placeholder Image">
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label for="title">Title: </label><br>
+                    <input type="text" id="title" formControlName="title" [value]="streamListing?.title"
+                        style="width: 250px;">
+                </div>
+                <div>
+                    <label for="description">Description: </label><br>
+                    <textarea id="description" formControlName="description" [value]="streamListing?.description"
+                        style="height: 100px; width: 250px;"></textarea>
+                </div>
+                <div>
+                    <label for="photo">Image: </label><br>
+                    <input type="text" id="photo" formControlName="photo" [value]="streamListing?.photo"
+                        style="width: 250px;">
+                </div>
+
+                <button type="submit">Update Host Stream</button>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="updateSuccess" class="update-success">Update Success!</div>
+    <div *ngIf="updateFailure" class="update-failure">Update Failure!</div>
+
 </div>
+
+
 
 <ng-template #showAdminErr>
     <div class="card">
