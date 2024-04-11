@@ -1,18 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+/****************************************************
+ * Light Theme Styles
+ * These colors are the defaults.
+ 
+ * If the user toggles the theme to
+ * Dark, the colors from .dark-theme{}
+ * will be used, see dark-theme section below.
 
-form.example input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #000000;
-  }
+ * Only the color information is defined here, the
+ * other style code (flex, padding, etc) is set
+ * in each component's respective style sheet.
+ * The information here, plus the information there
+ * comprise all style information for the components.
+ ****************************************************/
 
-/* Dark Theme Styles */
+/* Global styles */
+ .header { 
+  background-color: #fff;
+  color: #121212;
+ }
+
+
+.header .dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/****************************************************
+/* Stream Listing Component */
+.listing {
+  background: #fff;
+}
+
+.dark-theme .listing {
+  background: #252526;
+}
+/****************************************************
+
+
+/****************************************************
+/* The navigation bar at the top of the page */
+.top-bar {
+  background-color: #fff;
+}
+
+.dark-theme .top-bar {
+  background-color: #252526;
+
+}
+/****************************************************
+
+/****************************************************
+ * Dark Theme Styles
+ * These colors will be applied when the user toggles
+ * on Dark mode.
+ ****************************************************/
+
 .dark-theme {
-    background-color: #121212;
-    color: #ffffff;
+ 
     html { background-color: #1e1e1e; }
     body{margin:0}
     html, body { height: 100%; }
@@ -25,5 +69,10 @@ form.example input[type=text] {
         float: left;
         width: 80%;
         background: #f1f1f1;
-      }
+    }
+
+    /* .listing{
+      background: #883234;
+    } */
+
   }
