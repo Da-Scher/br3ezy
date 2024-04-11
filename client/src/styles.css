@@ -13,66 +13,153 @@
  * comprise all style information for the components.
  ****************************************************/
 
-/* Global styles */
- .header { 
-  background-color: #fff;
-  color: #121212;
- }
 
 
-.header .dark-theme {
-  background-color: #121212;
-  color: #ffffff;
-}
 
 /****************************************************
-/* Stream Listing Component */
+/* Global styles */
+body {
+  margin: 0px;
+  background-color: #ffffff;
+}
+
+body.dark-theme {
+  background-color: #333333;
+}
+
+/****************************************************/
+
+
+
+
+/****************************************************
+ * Stream Listing Component (the cards) */
 .listing {
   background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.listing:hover {
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
 }
 
 .dark-theme .listing {
   background: #252526;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
-/****************************************************
+
+.dark-theme .listing:hover {
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+  /* Orange color with 50% opacity */
+}
+
+.listing-heading {
+  a {
+    color: #000000;
+  }
+}
+
+.dark-theme .listing-heading {
+  a {
+    color: #EAEAEA;
+  }
+}
+/****************************************************/
 
 
-/****************************************************
-/* The navigation bar at the top of the page */
+
+/*******************
+ * Navigation Bar */
 .top-bar {
   background-color: #fff;
+  color: #000;
 }
 
 .dark-theme .top-bar {
   background-color: #252526;
+  color: #fff;
 
 }
-/****************************************************
+/*****************************/
 
-/****************************************************
- * Dark Theme Styles
- * These colors will be applied when the user toggles
- * on Dark mode.
- ****************************************************/
 
-.dark-theme {
- 
-    html { background-color: #1e1e1e; }
-    body{margin:0}
-    html, body { height: 100%; }
-    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-    
-    form.example input[type=text] {
-        padding: 10px;
-        font-size: 17px;
-        border: 1px solid grey;
-        float: left;
-        width: 80%;
-        background: #f1f1f1;
-    }
 
-    /* .listing{
-      background: #883234;
-    } */
+/***********************
+ * Gallery Component */
+.wrapper {
+  background-color: #ffffff;
+}
 
+.dark-theme .wrapper {
+  background-color: #333333;
+}
+
+.results {
+  background-color: #ffffff;
+}
+
+.dark-theme .results {
+  background-color: #333333;
+}
+/***********************/
+
+
+
+/*****************
+ /* Watch Page */
+.watchpage {
+  background-color: #ffffff;
+}
+
+.responsive-details {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+.dark-theme .watchpage {
+  background-color: #333333;
+  color: #EAEAEA;
+}
+
+.dark-theme .responsive-details {
+  background-color: #252526;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+/***********************/
+
+
+/*******************
+ * Chat Box */
+
+
+  .chat-box{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
   }
+
+ .dark-theme .chat-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+ }
+
+.dark-theme .chat-messages {
+  background-color: #252526;
+  color: #EAEAEA;
+
+}
+
+
+
+/*******************
+ * Settings Page */
+ .card{
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .dark-theme .card{
+  background-color: #252526;
+  color: #EAEAEA;
+ }
+
+ .dark-theme .container{
+  background-color: #252526;
+ }

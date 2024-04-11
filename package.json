@@ -37,6 +37,7 @@
   ],
   "dependencies": {
     "jwt-decode": "^4.0.0",
+    "rollup": "^4.14.1",
     "socket.io-client": "^4.7.5"
   },
   "devDependencies": {

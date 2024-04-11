@@ -1,39 +1,26 @@
-/* h1 {
-  font-weight: normal;
-}
-
-.brand-logo {
-  width: 10%;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background-color: #1E7D34; 
+.header{
+  margin: 0px;
 
 }
-
-.login-btn {
-  padding: 10px;
-  border: solid 1px #05781e;
-  background: #05781e;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-}
-*/
-
 
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  color: #fff;
+  /* color: #fff; */
+  border-bottom: 1px solid #000; /* Color and thickness of the border */
 }
 
+.greeting {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.toggle {
+  margin: 10px;
+}
 .banner img {
   width: 150px;
 }

@@ -1,12 +1,9 @@
-<!-- some html inspired by https://angular.io/tutorial/first-app/first-app-lesson-02  -->
+<div class="wrapper">
+  <!-- The Gallery of Streams -->
+  <section class="results">
+    <!-- *ngFor is an angular For loop, it will iterate thru the list of streamListings.-->
+    <app-stream-listing *ngFor="let streamListing of filteredListingList" [streamListing]="streamListing">
+    </app-stream-listing>
 
-<body>
-<!-- The Gallery of Streams -->
-<section class="results">
-  <!-- *ngFor is an angular For loop, it will iterate thru the list of streamListings.-->
-    <app-stream-listing
-    *ngFor="let streamListing of filteredListingList" [streamListing]="streamListing"> 
-  </app-stream-listing>
-
-</section>
-</body>
+  </section>
+</div>

@@ -14,21 +14,30 @@
   <!-- Right Div - Login and Settings -->
   <div class="login-settings">
     <ng-container *ngIf="isLoggedIn(); else showLogin">
-      <h3>Welcome, {{ user.username }}</h3>
+      <div class="greeting">
+        Welcome, {{ user.username }}
+      </div>
       <button class="login-btn" (click)="logout()">Logout</button>
       <button class="login-btn" [routerLink]="['settings']">Settings</button>
     </ng-container>
     <ng-template #showLogin>
       <a routerLink="/login" role="button" class="login-btn">Login / Register</a>
     </ng-template>
+  </div>
 
+  <div class="toggle">
     <app-theme-toggle></app-theme-toggle>
   </div>
+
 </header>
 
 
-  <div class="container">
+<body>
+  <div>
     <!-- Webpage Routes -->
       <router-outlet></router-outlet>
   </div>
+
+</body>
+
 

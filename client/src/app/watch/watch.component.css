@@ -1,22 +1,27 @@
+.watchpage {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow flex items to wrap to the next line */
+  padding: 20px
+}
+
 .responsive-details {
-    max-width: 800px;
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-    white-space: wrap;
-    text-overflow: ellipsis; 
+  max-width: 1024px;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+
+.chatbox {
+  margin-left: 20px;
 }
 
 .video-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-  }
-
-.video-container video {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  width: 100%;
+  max-width: 1024px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  */
+}

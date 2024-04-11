@@ -6,34 +6,22 @@
     --primary-color: #252526;
 }
 
+.wrapper {
+  padding: 20px;
+}
 
 .results {
     display: grid;
     column-gap: 14px;
     row-gap: 14px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
-    margin-top: 50px;
+    /* margin-top: 40px; */
     justify-content: space-around;
-    /* box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); Gold color with 50% opacity */
+    /* margin-left: 20px;
+    margin-right: 20px; */
+  }
+  
 
-  }
-  
-  input[type="text"] {
-    border: solid 1px #056B38;
-    padding: 10px;
-    border-radius: 8px;
-    margin-right: 4px;
-    display: inline-block;
-    width: 30%;
-  }
-  
-  button {
-    padding: 10px;
-    border: solid 1px var(--primary-color);
-    background: #056B38;
-    color: white;
-    border-radius: 8px;
-  }
   
   @media (min-width: 500px) and (max-width: 768px) {
     .results {
