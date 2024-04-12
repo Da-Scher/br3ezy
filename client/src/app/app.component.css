@@ -24,6 +24,8 @@
 }
 .banner img {
   width: 150px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+
 }
 
 .search-bar {
@@ -48,5 +50,5 @@
 }
 
 .login-btn:hover {
-  background-color: #777;
+  background-color: rgb(255, 165, 0);
 }

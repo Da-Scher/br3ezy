@@ -21,25 +21,16 @@
         ></div>
       </div>
 
-      <!-- Send bar where messages are entered -->
-      <div>
-      <form class="send-bar">
-        <input
-          type="text"
-          placeholder="Say something..."
-          [(ngModel)]="message"
-          (keydown.enter)="sendMessage()"
-        />
-        <button class="primary" type="button" (click)="sendMessage()">Send</button>
-      </form>
-
-
-
-
-      </div>
-
+          <!-- Send bar where messages are entered -->
+          <div class="send-bar">
+            <form class="send-bar">
+              <input type="text" placeholder="Say something..." [(ngModel)]="message" (keydown.enter)="sendMessage()" />
+              <button class="primary" type="button" (click)="sendMessage()">Send</button>
+            </form>
+          </div>
 
     </div>
+
     <!-- End Chat Box ***********************************************-->
 
     <!-- ******************************************* -->
@@ -56,3 +47,6 @@
 
   </body>
 </html>
+
+
+

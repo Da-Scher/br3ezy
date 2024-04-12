@@ -2,8 +2,8 @@
   display: block;
   padding: 10px;
   margin-top: 10px;
-  border: solid 1px #05781e;
-  background: #05781e;
+  border: solid 1px rgb(64,147,7);
+  background: rgb(64,147,7);
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -41,4 +41,12 @@ form.login input{
   width: 100%;
   background: #f1f1f1;
   margin-bottom: 5px;
+}
+
+
+
+.buttons button:hover,
+.buttons a:hover {
+  /* Add hover styles here */
+  background-color: #05781e; /* Example background color */
 }

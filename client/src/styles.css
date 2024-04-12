@@ -63,6 +63,7 @@ body.dark-theme {
     color: #EAEAEA;
   }
 }
+
 /****************************************************/
 
 
@@ -72,6 +73,12 @@ body.dark-theme {
 .top-bar {
   background-color: #fff;
   color: #000;
+  /* background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(35,121,9,1) 35%, rgba(0,212,255,1) 100%); */
+
+
+  /* background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(35,121,9,1) 100%); */
 }
 
 .dark-theme .top-bar {
@@ -79,6 +86,7 @@ body.dark-theme {
   color: #fff;
 
 }
+
 /*****************************/
 
 
@@ -100,6 +108,7 @@ body.dark-theme {
 .dark-theme .results {
   background-color: #333333;
 }
+
 /***********************/
 
 
@@ -111,7 +120,7 @@ body.dark-theme {
 }
 
 .responsive-details {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -122,8 +131,9 @@ body.dark-theme {
 
 .dark-theme .responsive-details {
   background-color: #252526;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
 /***********************/
 
 
@@ -131,13 +141,16 @@ body.dark-theme {
  * Chat Box */
 
 
-  .chat-box{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-  }
+.chat-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
 
- .dark-theme .chat-box {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
- }
+.dark-theme .chat-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  /* border: 0.5px solid black; */
+  /* box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5); */
+
+}
 
 .dark-theme .chat-messages {
   background-color: #252526;
@@ -145,52 +158,59 @@ body.dark-theme {
 
 }
 
+.dark-theme form.send-bar input {
+  background-color: #252526;
+  color: #EAEAEA;
+}
+
 
 
 /*******************
  * Settings Page */
- .setwrap{
+.setwrap {
   background-image: '../../assets/cactus.png';
- }
- .card{
-  background-color: #ffffff; /* Optional: Set background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- }
+}
 
- .dark-theme .card{
+.card {
+  background-color: #ffffff;
+  /* Optional: Set background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .card {
   background-color: #252526;
   color: #EAEAEA;
- }
+}
 
- .dark-theme .container{
-    background-color: #252526;
+.dark-theme .container {
+  background-color: #252526;
 
- }
+}
 
- /**************************
+/**************************
   * Login & Register Pages */
-  .logcard{
+.logcard {
 
-    box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
 
-  }
+}
 
-  .dark-theme .logcard{
-    background-color: #252526;
-    color: #EAEAEA;
-    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+.dark-theme .logcard {
+  background-color: #252526;
+  color: #EAEAEA;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
 
-  }
+}
 
-  .register-div{
-    box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+.register-div {
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
 
 
-  }
+}
 
-  .dark-theme .register-div{
-    background-color: #252526;
-    color: #EAEAEA;
-    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+.dark-theme .register-div {
+  background-color: #252526;
+  color: #EAEAEA;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
 
-  }
+}
