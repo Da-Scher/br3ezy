@@ -7,9 +7,9 @@
 /* Styling for chat box */
 .chat-box {
   /* border: 1px solid #ccc; */
-  width: 350px;
+  width: 300px;
   /* Adjust width as needed */
-  height: 576px;
+  height: 508px;
   /* Adjust height as needed */
   overflow: hidden;
   /* Hide overflow to prevent scrollbars on the chat box */

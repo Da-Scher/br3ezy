@@ -15,16 +15,15 @@
 
 
 
-
 /****************************************************
 /* Global styles */
 body {
   margin: 0px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 body.dark-theme {
-  background-color: #333333;
+  background-color: #333333 !important;
 }
 
 /****************************************************/
@@ -150,8 +149,11 @@ body.dark-theme {
 
 /*******************
  * Settings Page */
+ .setwrap{
+  background-image: '../../assets/cactus.png';
+ }
  .card{
-  background-color: #ffffff;
+  background-color: #ffffff; /* Optional: Set background color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
  }
 
@@ -161,5 +163,34 @@ body.dark-theme {
  }
 
  .dark-theme .container{
-  background-color: #252526;
+    background-color: #252526;
+
  }
+
+ /**************************
+  * Login & Register Pages */
+  .logcard{
+
+    box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+
+  }
+
+  .dark-theme .logcard{
+    background-color: #252526;
+    color: #EAEAEA;
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+
+  }
+
+  .register-div{
+    box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+
+
+  }
+
+  .dark-theme .register-div{
+    background-color: #252526;
+    color: #EAEAEA;
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+
+  }

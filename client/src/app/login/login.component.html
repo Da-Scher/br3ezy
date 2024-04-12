@@ -1,32 +1,53 @@
-<div class="login-div">
-  <form (ngSubmit)="login()">
-    <div>
-      <label for="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="user.username"
-        name="username"
-        required
-      />
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="user.password"
-        name="password"
-        required
-      />
-    </div>
-    <div>
-      <button type="submit">Login</button>
-    </div>
-  </form>
-  <div class="register-container">
-    <a routerLink="/register" role="button" class="register-btn"
-      >Need an account?</a
-    >
+<div class="logcard">
+
+  <div>
+    <form class="login" (ngSubmit)="login()">
+
+      <div>
+        <label for="username"></label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="user.username"
+          placeholder="Username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div>
+
+
+        <label for="password"></label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="user.password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        </div>
+
+        <!-- The login and register buttons -->
+        <div class="buttons">
+          <button class="register-btn"  type="submit">Login</button>
+
+          <a routerLink="/register" role="button" class="register-btn"
+          >Need an account?</a
+        >
+        </div>
+
+
+
+      
+    </form>
+
+
   </div>
+
+
 </div>
+
+
