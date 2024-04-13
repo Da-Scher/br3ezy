@@ -2,18 +2,51 @@
   display: block;
   padding: 10px;
   margin-top: 10px;
-  border: solid 1px #05781e;
-  background: #05781e;
+  border: solid 1px rgb(64,147,7);
+  background: rgb(64,147,7);
   color: white;
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
+  width: 120px;
 }
 
-.login-div {
+.buttons {
+  display: flex;
+  float: left;
+  margin-left: 15px;
+  gap: 10px;
+}
+
+
+
+
+.logcard {
+  width: 340px; 
+  margin: 20px auto; /* Center the card horizontally */
+  border-radius: 10px;
+  padding: 20px; /* Optional: Add padding for content inside the card */
+  margin-bottom: 20px; /* Add margin to create space between cards */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 10px;
+  align-items: center; /* Center content horizontally */
+
+}
+
+form.login input{
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  /* float: left; */
+  width: 100%;
+  background: #f1f1f1;
+  margin-bottom: 5px;
+}
+
+
+
+.buttons button:hover,
+.buttons a:hover {
+  /* Add hover styles here */
+  background-color: #05781e; /* Example background color */
 }

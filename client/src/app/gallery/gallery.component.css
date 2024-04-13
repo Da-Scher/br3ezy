@@ -1,35 +1,24 @@
-/* code inspired by https://angular.io/tutorial/first-app/first-app-lesson-02 */
-
+/* other colors: 26323D dark blackish*/
 :root{
-    --primary-color: #05781e;
+    --primary-color: #252526;
 }
 
+.wrapper {
+  padding: 20px;
+}
 
 .results {
     display: grid;
     column-gap: 14px;
     row-gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    /* margin-top: 40px; */
     justify-content: space-around;
+    /* margin-left: 20px;
+    margin-right: 20px; */
   }
   
-  input[type="text"] {
-    border: solid 1px #05781e;
-    padding: 10px;
-    border-radius: 8px;
-    margin-right: 4px;
-    display: inline-block;
-    width: 30%;
-  }
-  
-  button {
-    padding: 10px;
-    border: solid 1px var(--primary-color);
-    background: #05781e;
-    color: white;
-    border-radius: 8px;
-  }
+
   
   @media (min-width: 500px) and (max-width: 768px) {
     .results {

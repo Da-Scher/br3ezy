@@ -1,1 +1,216 @@
-/* You can add global styles to this file, and also import other style files */
+/****************************************************
+ * Light Theme Styles
+ * These colors are the defaults.
+ 
+ * If the user toggles the theme to
+ * Dark, the colors from .dark-theme{}
+ * will be used, see dark-theme section below.
+
+ * Only the color information is defined here, the
+ * other style code (flex, padding, etc) is set
+ * in each component's respective style sheet.
+ * The information here, plus the information there
+ * comprise all style information for the components.
+ ****************************************************/
+
+
+
+/****************************************************
+/* Global styles */
+body {
+  margin: 0px;
+  /* background-color: #ffffff; */
+}
+
+body.dark-theme {
+  background-color: #333333 !important;
+}
+
+/****************************************************/
+
+
+
+
+/****************************************************
+ * Stream Listing Component (the cards) */
+.listing {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.listing:hover {
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+}
+
+.dark-theme .listing {
+  background: #252526;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .listing:hover {
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+  /* Orange color with 50% opacity */
+}
+
+.listing-heading {
+  a {
+    color: #000000;
+  }
+}
+
+.dark-theme .listing-heading {
+  a {
+    color: #EAEAEA;
+  }
+}
+
+/****************************************************/
+
+
+
+/*******************
+ * Navigation Bar */
+.top-bar {
+  background-color: #fff;
+  color: #000;
+  /* background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(35,121,9,1) 35%, rgba(0,212,255,1) 100%); */
+
+
+  /* background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(35,121,9,1) 100%); */
+}
+
+.dark-theme .top-bar {
+  background-color: #252526;
+  color: #fff;
+
+}
+
+/*****************************/
+
+
+
+/***********************
+ * Gallery Component */
+.wrapper {
+  background-color: #ffffff;
+}
+
+.dark-theme .wrapper {
+  background-color: #333333;
+}
+
+.results {
+  background-color: #ffffff;
+}
+
+.dark-theme .results {
+  background-color: #333333;
+}
+
+/***********************/
+
+
+
+/*****************
+ /* Watch Page */
+.watchpage {
+  background-color: #ffffff;
+}
+
+.responsive-details {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.dark-theme .watchpage {
+  background-color: #333333;
+  color: #EAEAEA;
+}
+
+.dark-theme .responsive-details {
+  background-color: #252526;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/***********************/
+
+
+/*******************
+ * Chat Box */
+
+
+.chat-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .chat-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  /* border: 0.5px solid black; */
+  /* box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5); */
+
+}
+
+.dark-theme .chat-messages {
+  background-color: #252526;
+  color: #EAEAEA;
+
+}
+
+.dark-theme form.send-bar input {
+  background-color: #252526;
+  color: #EAEAEA;
+}
+
+
+
+/*******************
+ * Settings Page */
+.setwrap {
+  background-image: '../../assets/cactus.png';
+}
+
+.card {
+  background-color: #ffffff;
+  /* Optional: Set background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .card {
+  background-color: #252526;
+  color: #EAEAEA;
+}
+
+.dark-theme .container {
+  background-color: #252526;
+
+}
+
+/**************************
+  * Login & Register Pages */
+.logcard {
+
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+
+}
+
+.dark-theme .logcard {
+  background-color: #252526;
+  color: #EAEAEA;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+
+}
+
+.register-div {
+  box-shadow: 0 4px 8px rgba(64, 147, 7, 0.5);
+
+
+}
+
+.dark-theme .register-div {
+  background-color: #252526;
+  color: #EAEAEA;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+
+}

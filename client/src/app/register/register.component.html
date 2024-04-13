@@ -1,9 +1,10 @@
 <div class="register-div">
-  <form (ngSubmit)="register()">
+  <form class="register" (ngSubmit)="register()">
     <div>
-      <label for="username">Username:</label>
+      <label for="username"></label>
       <input
         type="text"
+        placeholder="Username"
         id="username"
         [(ngModel)]="user.username"
         name="username"
@@ -11,9 +12,10 @@
       />
     </div>
     <div>
-      <label for="email">Email:</label>
+      <label for="email"></label>
       <input
         type="email"
+        placeholder="Email Address"
         id="email"
         [(ngModel)]="user.email"
         name="email"
@@ -21,21 +23,24 @@
       />
     </div>
     <div>
-      <label for="password">Password:</label>
+      <label for="password"></label>
       <input
         type="password"
+        placeholder="Password"
         id="password"
         [(ngModel)]="user.password"
         name="password"
         required
       />
     </div>
-    <button type="submit">Register</button>
+
+    <div class="buttons">
+      <button class ="login-btn" type="submit">Register</button>
+      <a routerLink="/login" role="button" class="login-btn"
+        >Have an account?</a
+      >
+    </div>
   </form>
 
-  <div class="login-container">
-    <a routerLink="/login" role="button" class="login-btn"
-      >Already have an account?</a
-    >
-  </div>
+
 </div>

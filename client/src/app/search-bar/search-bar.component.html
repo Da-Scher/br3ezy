@@ -1,0 +1,10 @@
+<!-- Add this line to the <head> section of your HTML file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<form class="example">
+    <input type="text" placeholder="Filter streams" #filter>
+    <!-- #filter creates a variable we can refer to which holds the input text-->
+    <button class="primary" type="button" (click)="onSubmit(filter.value)">
+        <i class="fa fa-search"></i>
+    </button>
+</form>

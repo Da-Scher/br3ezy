@@ -1,29 +1,43 @@
-<!-- App Component HTML -->
-<main>
-  <div class="header">
+<header class="top-bar">
+  <!-- Left Div - Banner -->
+  <div class="banner">
     <a [routerLink]="['/']">
-      <header class="brand-name">
-        <img
-          class="brand-logo"
-          src="../assets/br3ezy_logo_banner.png"
-          alt="br3ezy logo"
-          aria-hidden="true"
-        />
-      </header>
+      <img src="../assets/br3ezy_logo_banner.png" alt="br3ezy logo">
     </a>
-    <div *ngIf="isLoggedIn(); else showLogin">
-      <h3>Welcome, {{ user.username }}</h3>
+  </div>
+
+  <!-- Middle Div - Search Bar -->
+  <div class="search-bar">
+    <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  </div>
+
+  <!-- Right Div - Login and Settings -->
+  <div class="login-settings">
+    <ng-container *ngIf="isLoggedIn(); else showLogin">
+      <div class="greeting">
+        Welcome, {{ user.username }}
+      </div>
       <button class="login-btn" (click)="logout()">Logout</button>
-      <button class="login-btn" style="margin-left: 10px;" [routerLink]="['settings']">Settings</button>
-    </div>
+      <button class="login-btn" [routerLink]="['settings']">Settings</button>
+    </ng-container>
     <ng-template #showLogin>
-      <a routerLink="/login" role="button" class="login-btn"
-        >Login / Register</a
-      >
+      <a routerLink="/login" role="button" class="login-btn">Login / Register</a>
     </ng-template>
   </div>
-  <!-- Webpage Routes -->
-  <section class="content">
-    <router-outlet></router-outlet>
-  </section>
-</main>
+
+  <div class="toggle">
+    <app-theme-toggle></app-theme-toggle>
+  </div>
+
+</header>
+
+
+<body>
+  <div>
+    <!-- Webpage Routes -->
+      <router-outlet></router-outlet>
+  </div>
+
+</body>
+
+

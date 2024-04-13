@@ -1,42 +1,24 @@
 /* this code inspired by https://angular.io/tutorial/first-app/first-app-lesson-03 */
 
 .listing {
-    background: #69d27f;
-    border-radius: 30px;
-    padding-bottom: 30px;
+
+    /* border-radius: 30px;  */
+    /* padding-bottom: 30px; */
+    /* 409407 green */
   }
+
+
   .listing-heading {
     /* Normal link style */
     a {
-      color: rgb(7, 95, 30);
       text-decoration: none; /* Remove underline if desired */
     }
-
-    
-    color: #05781e;
-    padding: 10px 20px 0 20px;
+    padding: 10px 20px 0 10px;
   }
+
   .listing-photo {
-    height: 250px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 30px 30px 0 0;
+    /* border-radius: 30px 30px 0 0; */
   }
-  .listing-location {
-    padding: 10px 20px 20px 20px;
-  }
-  .listing-location::before {
-    content: url("https://www.iconninja.com/files/228/904/57/green-pin-location-red-position-icon.png") / "";
-  }
-  
-  /*
-  section.listing a {
-    padding-left: 20px;
-    text-decoration: none;
-    color: var(--primary-color);
-  }
-  section.listing a::after {
-    content: "\203A";
-    margin-left: 5px;
-  }
-  */

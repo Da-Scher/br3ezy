@@ -8,7 +8,11 @@
   </head>
 
   <body>
+    <!-- ******************************************************** -->
+    <!-- If the user is logged in, show the chat. otherwise, dont -->
     <div *ngIf="user; else loginPrompt" class="chat-box" id="chatBox">
+
+      <!-- The messages appear here-->
       <div class="chat-messages" id="chatMessages">
         <div
           *ngFor="let msg of messages"
@@ -17,17 +21,20 @@
         ></div>
       </div>
 
-      <div class="send-bar">
-        <input
-          type="text"
-          class="message-input"
-          placeholder="Type your message..."
-          [(ngModel)]="message"
-          (keydown.enter)="sendMessage()"
-        />
-        <button class="send-button" (click)="sendMessage()">Send</button>
-      </div>
+          <!-- Send bar where messages are entered -->
+          <div class="send-bar">
+            <form class="send-bar">
+              <input type="text" placeholder="Say something..." [(ngModel)]="message" (keydown.enter)="sendMessage()" />
+              <button class="primary" type="button" (click)="sendMessage()">Send</button>
+            </form>
+          </div>
+
     </div>
+
+    <!-- End Chat Box ***********************************************-->
+
+    <!-- ******************************************* -->
+    <!-- The user is not logged in. Prompt for login -->
     <ng-template #loginPrompt>
       <div>
         <p>You must be logged in to participate in the chat.</p>
@@ -36,5 +43,10 @@
         >
       </div>
     </ng-template>
+    <!--*******-->
+
   </body>
 </html>
+
+
+

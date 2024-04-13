@@ -2,12 +2,9 @@
   width: 475px; /* Set width to 400px */
   margin: 0 auto; /* Center the card horizontally */
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff; /* Optional: Set background color */
   padding: 20px; /* Optional: Add padding for content inside the card */
   margin-bottom: 20px; /* Add margin to create space between cards */
 }
-
 
   .streamPhoto {
     width: 200px; /* Set maximum width */
@@ -44,5 +41,17 @@
     font-weight: bold;
   }
   
- 
-  
+ .setwrap {
+  padding: 10px;  
+  background-image: url('../../assets/cactus.png');
+  background-size: cover; /* Cover the entire element */
+  background-position: right bottom;
+  background-repeat: no-repeat; /* Do not repeat the background image *
+ }
+
+
+
+.cactus{
+  max-width: 100%; /* Set the maximum width to 100% of its container */
+  height: auto; /* Maintain the aspect ratio */
+}
