@@ -5,8 +5,9 @@ INSERT INTO Users (username, email, passwordHash, role) VALUES
 ('anotheruser', 'user2@example.com', '$2a$08$X8pvrFWa9ytAQRcsR/h7dO9BbhsJZtKFFHl12RSvGcc2wioLir2Ry', 'user');
 
 -- Insert streams
-INSERT INTO Streams (userId, title, description, url, photo, isActive) VALUES
-(1, 'Server Host Stream', 'This is the server host stream. It has the streamout.m3u8 url, so the server host can stream their zany antics to the masses.', 'https://localhost:8000/stream/streamout.m3u8', 'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', FALSE);
+INSERT INTO Streams (userId, title, description, url, photo, isActive, isArchived) VALUES
+(1, 'Server Host Stream', 'This is the server host stream. It has the streamout.m3u8 url, so the server host can stream their zany antics to the masses.', 'https://localhost:8000/stream/streamout.m3u8', 'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', FALSE, FALSE),
+(1, 'Archived Stream', 'This is an archived stream. For developement purposes, it will be home to the forgotten LoveNature stream.', 'https://lnc-love-nature.tubi.video/playlist.m3u8', 'https://jbarteluce.net/files/channels4_profile.jpg', FALSE, TRUE);
 
 -- Insert messages
 INSERT INTO Messages (userId, streamId, body) VALUES

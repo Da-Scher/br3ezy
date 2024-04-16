@@ -1,17 +1,17 @@
 const Stream = require("../models/stream");
 const Federation = require("../models/federation");
-// TODO: start ffmpeg with addStream
-// const { startFfmpegStream } = require("../services/streamService");
 
 exports.addStream = async (req, res) => {
-  const { userId, title, description, photo } = req.body;
+  const { userId, title, description, url, photo, isArchived } = req.body;
 
   try {
     const streamId = await Stream.createStream(
       userId,
       title,
       description,
+      url,
       photo,
+      isArchived,
     );
     res.sendSuccess(201, streamId);
   } catch (error) {
@@ -52,10 +52,16 @@ exports.updateFederationStream = async (req, res) => {
 
 exports.updateStream = async (req, res) => {
   const { id } = req.params;
-  const { title, description, photo } = req.body;
+  const { title, description, photo, isArchived } = req.body;
 
   try {
-    const update = await Stream.updateStream(id, title, description, photo);
+    const update = await Stream.updateStream(
+      id,
+      title,
+      description,
+      photo,
+      isArchived,
+    );
     res.sendSuccess(200, { update });
   } catch (error) {
     res.sendError(500, error);

@@ -23,7 +23,8 @@ CREATE TABLE Streams (
     url VARCHAR(1024),
     photo VARCHAR(255),
     startTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    isActive BOOLEAN DEFAULT TRUE,
+    isActive BOOLEAN DEFAULT FALSE,
+    isArchived BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (userId) REFERENCES Users(id)
 );
 

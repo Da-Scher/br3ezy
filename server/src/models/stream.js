@@ -1,10 +1,17 @@
 const pool = require("../db/db");
 
 class Stream {
-  static async createStream(userId, title, description, photo) {
+  static async createStream(
+    userId,
+    title,
+    description,
+    url,
+    photo,
+    isArchived,
+  ) {
     const [results] = await pool.query(
-      "INSERT INTO Streams (userId, title, description, photo) VALUES (?, ?, ?, ?)",
-      [userId, title, description, photo],
+      "INSERT INTO Streams (userId, title, description, url, photo, isArchived) VALUES (?, ?, ?, ?, ?, ?)",
+      [userId, title, description, url, photo, isArchived],
     );
     return { streamId: results.insertId };
   }
@@ -45,10 +52,10 @@ class Stream {
     return result;
   }
 
-  static async updateStream(id, title, description, photo) {
+  static async updateStream(id, title, description, photo, isArchived) {
     const [results] = await pool.query(
-      "UPDATE Streams SET title = ?, description = ?, photo = ? WHERE id = ?",
-      [title, description, photo, id],
+      "UPDATE Streams SET title = ?, description = ?, photo = ?, isArchived = ? WHERE id = ?",
+      [title, description, photo, isArchived, id],
     );
 
     if (results.affectedRows === 0) {
