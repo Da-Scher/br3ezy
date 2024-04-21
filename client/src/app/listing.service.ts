@@ -10,7 +10,8 @@ export class ListingService {
   constructor(private http: HttpClient) { }
 
   // stream API url
-  url = 'https://localhost:8000/api/stream';
+  // url = 'https://localhost:8000/api/stream';
+     url = window.location.protocol + '//' + window.location.host + '/api/stream';
 
   // get all streams by searching with an empty keyword
   async getAllStreamListings(): Promise<StreamListing[]> { 
