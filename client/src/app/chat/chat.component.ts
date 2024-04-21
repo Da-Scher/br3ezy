@@ -25,9 +25,11 @@ export class ChatComponent implements OnInit {
     private router: Router,
   ) {}
 
+  url = window.location.protocol + '//' + window.location.host;
+
   ngOnInit(): void {
     this.parentRoute = this.router.url;
-    this.socket = io("https://localhost:8000");
+    this.socket = io(this.url);
     this.socket.on("receiveMessage", (msg: any) => {
       this.messages.unshift(
         `<strong>${msg.username}</strong>: ${msg.body}`,
