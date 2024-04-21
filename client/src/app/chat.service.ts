@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
   
-  url = window.location.protocol + '//' + window.location.host;
-
+  url = 'http://' + window.location.host;
+  
   private socket = io(this.url);
 
   sendMessage(message: string){

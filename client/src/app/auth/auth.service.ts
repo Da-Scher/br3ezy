@@ -22,16 +22,18 @@ export class AuthService {
     private router: Router,
   ) {}
 
+  url = window.location.protocol + '//' + window.location.host;
+
   login(username: string, password: string) {
     return this.http.post<{ success: boolean; data: { token: string } }>(
-      "https://localhost:8000/api/auth/login",
+      this.url + "/api/auth/login",
       { username, password },
     );
   }
 
   register(username: string, email: string, password: string) {
     return this.http.post<{ success: boolean; data: { userId: string } }>(
-      "https://localhost:8000/api/auth/register",
+      this.url + "/api/auth/register",
       { username, email, password },
     );
   }
@@ -41,7 +43,7 @@ export class AuthService {
     return this.http.get<{
       success: boolean;
       data: { authorized: boolean };
-    }>("https://localhost:8000/api/auth", { headers });
+    }>(this.url + "api/auth", { headers });
   }
 
   isLoggedIn(): boolean {
