@@ -25,7 +25,8 @@ export class SettingsComponent {
   adminForm: FormGroup; // Form to hold admin stream settings
   listingService = inject(ListingService); // use to grab stream info
   streamListing: StreamListing | undefined; // it's okay to be undefined. plz dont crash
-  url = 'https://localhost:8000/api/stream'; // stream API url
+  url = window.location.protocol + '//' + window.location.host + '/api/stream';
+
 
   constructor(public authService: AuthService, private fb: FormBuilder, private router: Router) {
     // init form to blank silences typescript complaints
