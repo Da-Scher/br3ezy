@@ -2,7 +2,7 @@
 
 <!-- Video Player Component -->
 <div class="video-container">
-  <app-videoplayer [streamURL]="streamListing?.url"></app-videoplayer>
+  <app-videoplayer [options]="{controlBar: {playToggle: false, captionsButton: false, chaptersButton: false, subtitlesButton: false, remainingTimeDisplay: false, progressControl: {seekBar: false}, fullscreenToggle: false, playbackRateMenuButton: false}, width: 800, height: 600, fill: true, fluid: true, aspectRatio: '4:3', autoplay: true, preload: 'meta', html5: {hls: {enableLowInitialPlaylist: true, smoothQualityChange: true, overrideNative: true}}, sources: [{ src: 'https://192.168.193.59:8000/stream/streamout.m3u8', type: 'application/x-mpegURL' }]}"></app-videoplayer>
 </div>
 
 <!-- Chat Box-->
