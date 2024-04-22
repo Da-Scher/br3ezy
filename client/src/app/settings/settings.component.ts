@@ -32,7 +32,8 @@ export class SettingsComponent {
     this.adminForm = this.fb.group({
       title: [''],
       description: [''],
-      photo: ['']
+      photo: [''],
+      isArchived: [false]
     });
     // request stream from listing service by id, assign listing, update form
     this.listingService.getStreamListingById(1).then((streamListing: StreamListing | undefined)=> { 
@@ -40,7 +41,8 @@ export class SettingsComponent {
       this.adminForm = this.fb.group({
         title: [streamListing?.title],
         description: [streamListing?.description],
-        photo: [streamListing?.photo]
+        photo: [streamListing?.photo],
+        isArchived: [streamListing?.isArchived]
       });
     });
 

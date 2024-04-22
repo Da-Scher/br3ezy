@@ -1,3 +1,5 @@
 #environment
 .env
+# archived streams
+/archive
 

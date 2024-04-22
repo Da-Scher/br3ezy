@@ -28,6 +28,7 @@ app.use(
   ),
 );
 app.use("/stream", express.static(path.join(__dirname, "..", "stream")));
+app.use("/archive", express.static(path.join(__dirname, "..", "archive")));
 app.get("*", (req, res) => {
   res.sendFile(
     path.join(

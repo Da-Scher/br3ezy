@@ -32,6 +32,12 @@
                     <input type="text" id="photo" formControlName="photo" [value]="streamListing?.photo"
                         style="width: 250px;">
                 </div>
+                <div>
+                    <label>
+                        <input type="checkbox" id="isArchived" formControlName="isArchived">
+                        isArchived
+                    </label>
+                </div>
 
                 <button type="submit">Update Host Stream</button>
             </form>

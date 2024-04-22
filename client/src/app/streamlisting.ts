@@ -4,6 +4,7 @@ export interface StreamListing {
   description: string;
   id: number
   isActive: boolean;
+  isArchived: boolean;
   photo: string;
   startTime: number;
   title: string;
