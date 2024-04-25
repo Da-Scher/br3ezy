@@ -105,12 +105,16 @@ describe("White Box Tests", () => {
     const password = "password";
     const hashedPassword = "hashedpassword";
     const insertId = 2;
+    // [Added field]
+    const role = "user";
     const sampleUser = [
       {
         id: insertId,
         username: "existinguser",
         email: "existing@example.com",
         hashedPassword: "hashedpassword",
+        // [Added field]
+        role: "user",
       },
     ];
 
@@ -196,7 +200,7 @@ describe("White Box Tests", () => {
      *   const user = await this.findByUsername(username);
      *   const isMatch = await bcrypt.compare(password, user.passwordHash);
      *   if (!isMatch) throw new Error("Invalid password");
-     *   return { userId: user.id };
+     *   return { user }; [Modified from original]
      * }
      *
      */
@@ -212,7 +216,10 @@ describe("White Box Tests", () => {
           "SELECT * FROM Users WHERE username = ?",
           [username],
         );
-        expect(result).toEqual({ userId: insertId });
+        expect(result).toEqual({
+          // [Modified from original]
+          user: { id: insertId, username: "existinguser", role },
+        });
       });
 
       it("should throw an error for invalid password during login", async () => {
@@ -280,18 +287,24 @@ describe("Integration Tests", () => {
     it("should add a new stream and return its ID", async () => {
       jest.spyOn(Stream, "createStream").mockResolvedValueOnce({ streamId: 1 });
 
+      // [Added fields]
       const response = await request(app).post("/api/stream/add").send({
         userId: 1,
         title: "Test Stream",
         description: "Test Desc",
+        url: "exampleurl",
         photo: "test.jpg",
+        isArchived: false,
       });
 
+      // [Added fields]
       expect(Stream.createStream).toHaveBeenCalledWith(
         1,
         "Test Stream",
         "Test Desc",
+        "exampleurl",
         "test.jpg",
+        false,
       );
 
       expect(response.statusCode).toBe(201);
